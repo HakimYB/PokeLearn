@@ -28,7 +28,6 @@ pokemon_species.each do |species|
     types = pokemon_data['types']
   end
 
-  # New code to extract type names as an array of strings
   type_names = types.map { |type_data| type_data['type']['name'] } if types.present?
 
   evolution_url = species_data['evolution_chain']['url']
