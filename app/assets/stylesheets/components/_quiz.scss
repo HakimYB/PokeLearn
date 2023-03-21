@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif
+}
+
+.container{
+  margin: 30px auto;
+  background: white;
+  padding: 20px 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+label.box{
+  display: flex;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #ddd
+}
+#five:checked~label.fifth, #six:checked~label.sixth, #seven:checked~label.seveth, #eight:checked~label.eighth{
+  border-color: #D5A100;
+  border-width: 3px;
+}
+
+label.box:hover{
+  background: #FFCC00
+}
+
+label.box .course{
+  display: flex;
+  align-items: center;
+  width: 100%
+}
+
+label.box.circle{
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid #ddd;
+  display: inline-block
+}
+
+input[
+  type="radio"]{
+    display: none
+}
+
+.btn.btn-primary{
+  border-radius: 25px;
+  margin-top: 20px
+}
+
+@media(
+    max-width: 450px){
+.subject{
+  font-size: 12px}
+}
+
+.heading{
+  margin-top: 10px;
+}
+
+.btn.btn-primary{
+  background-color: #0075BE;
+}
