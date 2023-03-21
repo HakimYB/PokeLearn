@@ -2,6 +2,10 @@
   <h1>Quiz time!</h1>
 </div>
 
+<%= simple_form_for @quiz_question do |f| %>
+  <%= f.input :user_answer, collection: [@answer, @incorrect], :label => @problem %>
+  <%= f.submit %>
+<% end %>
 
 
 
