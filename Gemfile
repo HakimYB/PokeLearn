@@ -45,6 +45,22 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
+gem 'railties', '7.0.4.3'
+gem 'actioncable', '7.0.4.3'
+gem 'actionmailbox', '7.0.4.3'
+gem 'actionmailer', '7.0.4.3'
+gem 'actionpack', '7.0.4.3'
+gem 'actiontext', '7.0.4.3'
+gem 'actionview', '7.0.4.3'
+gem 'activejob', '7.0.4.3'
+gem 'activemodel', '7.0.4.3'
+gem 'activerecord', '7.0.4.3'
+gem 'activestorage', '7.0.4.3'
+gem 'activesupport', '7.0.4.3'
+gem 'rack', '2.2.6.4'
+gem 'rack-test', '2.1.0'
+
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

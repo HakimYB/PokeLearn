@@ -9,4 +9,7 @@ class PagesController < ApplicationController
     @user = current_user
     # @user_pokemons = @user.
   end
+
+  def index
+  end
 end
