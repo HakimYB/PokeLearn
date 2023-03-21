@@ -251,6 +251,17 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actioncable (= 7.0.4.3)
+  actionmailbox (= 7.0.4.3)
+  actionmailer (= 7.0.4.3)
+  actionpack (= 7.0.4.3)
+  actiontext (= 7.0.4.3)
+  actionview (= 7.0.4.3)
+  activejob (= 7.0.4.3)
+  activemodel (= 7.0.4.3)
+  activerecord (= 7.0.4.3)
+  activestorage (= 7.0.4.3)
+  activesupport (= 7.0.4.3)
   autoprefixer-rails
   bootsnap
   capybara
@@ -262,7 +273,10 @@ DEPENDENCIES
   jsbundling-rails
   pg (~> 1.1)
   puma (~> 5.0)
+  rack (= 2.2.6.4)
+  rack-test (= 2.1.0)
   rails (~> 7.0.4, >= 7.0.4.2)
+  railties (= 7.0.4.3)
   sassc-rails
   selenium-webdriver
   simple_form!
