@@ -1,18 +1,7 @@
 class QuizQuestionsController < ApplicationController
-  def new
-    @quiz = Quiz.new
-  end
-
-  def create
-    @quiz = Quiz.new(quiz_params)
-    if @quiz.save
-      redirect_to quiz_path(@quiz)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
 
   def show
+    @quiz_question = QuizQuestion.find(params[:id])
   end
 
   private

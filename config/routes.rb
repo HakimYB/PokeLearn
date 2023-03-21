@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/map", to: "pages#map"
 
   resources :quizzes, only: [:create, :new, :show]
+  resources :quiz_questions, only: [:show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
