@@ -10,6 +10,6 @@ class PagesController < ApplicationController
     # @user_pokemons = @user.
   end
 
-  def index
+  def map
   end
 end
