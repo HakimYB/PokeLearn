@@ -11,53 +11,64 @@ require 'open-uri'
 require 'cgi'
 
 puts 'Cleaning database...'
-# Pokemon.destroy_all
+Pokemon.destroy_all
 Question.destroy_all
 
-# puts 'Creating Pokemon data...'
-# gen1_url = 'https://pokeapi.co/api/v2/generation/1'
-# gen1_data = JSON.parse(URI.open(gen1_url).read)
-# pokemon_species = gen1_data['pokemon_species']
+puts 'Creating Pokemon data...'
+gen1_url = 'https://pokeapi.co/api/v2/generation/1'
+gen1_data = JSON.parse(URI.open(gen1_url).read)
+pokemon_species = gen1_data['pokemon_species']
 
-# pokemon_species.each do |species|
-#   species_data = JSON.parse(URI.open(species['url']).read)
-#   name = species_data['name']
-#   types = species_data['types']
-#   if types.nil? || types.empty?
-#     pokemon_data = JSON.parse(URI.open("https://pokeapi.co/api/v2/pokemon/#{name}/").read)
-#     types = pokemon_data['types']
-#   end
+pokemon_species.each do |species|
+  species_data = JSON.parse(URI.open(species['url']).read)
+  name = species_data['name']
+  types = species_data['types']
+  if types.nil? || types.empty?
+    pokemon_data = JSON.parse(URI.open("https://pokeapi.co/api/v2/pokemon/#{name}/").read)
+    types = pokemon_data['types']
+  end
 
-#   # New code to extract type names as an array of strings
-#   type_names = types.map { |type_data| type_data['type']['name'] } if types.present?
+  # New code to extract type names as an array of strings
+  type_names = types.map { |type_data| type_data['type']['name'] } if types.present?
 
-#   evolution_url = species_data['evolution_chain']['url']
-#   evolution_data = JSON.parse(URI.open(evolution_url).read)
-#   chain = evolution_data['chain']
-#   while chain['evolves_to'].size > 0
-#     evolves_to_species = chain['evolves_to'][0]['species']
-#     evolves_to_name = evolves_to_species['name']
-#     pokemon = Pokemon.find_by(name: name)
-#     pokemon.update(evolves_to: evolves_to_name) if pokemon.present?
-#     chain = chain['evolves_to'][0]
-#   end
+  evolution_url = species_data['evolution_chain']['url']
+  evolution_data = JSON.parse(URI.open(evolution_url).read)
+  chain = evolution_data['chain']
 
-#   species_data = JSON.parse(URI.open("https://pokeapi.co/api/v2/pokemon/#{name}/").read)
-#   image_url = species_data.dig('sprites', 'other', 'official-artwork', 'front_default')
-#   Pokemon.create!(name: name, pokemon_type: type_names, image_url: image_url)
-# end
+  species_data = JSON.parse(URI.open("https://pokeapi.co/api/v2/pokemon/#{name}/").read)
+  image_url = species_data.dig('sprites', 'other', 'official-artwork', 'front_default')
+  pokemon = Pokemon.create!(name: name, pokemon_type: type_names, image_url: image_url)
+  while chain['evolves_to'].size > 0
+    evolves_to_species = chain['evolves_to'][0]['species']
+    evolves_to_name = evolves_to_species['name']
+    if pokemon.evolves_to.nil?
+      pokemon = Pokemon.find_by(name: name)
+    else
+      pokemon = Pokemon.find_by(name: pokemon.evolves_to)
+    end
+    p pokemon, evolves_to_name, evolves_to_species
+    pokemon.update(evolves_to: evolves_to_name) if pokemon && pokemon.name != evolves_to_name
+    chain = chain['evolves_to'][0]
+  end
+end
 
 puts 'Creating Question data...'
-url = 'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
-data = JSON.parse(URI.open(url).read)
-data['results'].each do |question|
-  correct_answer = question['correct_answer']
-  incorrect_answers = question['incorrect_answers']
-  problem = CGI.unescapeHTML(question['question'])
-  Question.create!(
-    problem: problem,
-    correct_answer: correct_answer,
-    incorrect_answer: incorrect_answers.join(',')
-  )
+for i in 0..10 do
+  url = "https://opentdb.com/api.php?amount=10&category=#{i}&difficulty=easy&type=multiple"
+  data = JSON.parse(URI.open(url).read)
+  data['results'].each do |question|
+    p question
+    correct_answer = question['correct_answer']
+    incorrect_answers = question['incorrect_answers']
+    problem = CGI.unescapeHTML(question['question']).gsub(/&([#0-9A-Za-z]+);/, "")
+    category = question['category']
+    Question.create!(
+      problem: problem,
+      correct_answer: correct_answer,
+      incorrect_answer: incorrect_answers.join(','),
+      category: category
+    )
+  end
+  puts 'Seed data generated!'
+
 end
-puts 'Seed data generated!'
