@@ -13,6 +13,13 @@ require 'cgi'
 puts 'Cleaning database...'
 # Pokemon.destroy_all
 Question.destroy_all
+# User.destroy_all
+
+# puts "Creating User data..."
+# ayano = User.create!(first_name: "Ayano", last_name: "Umemoto", email: "ayano@gmail.com", password: 123456)
+# hakim = User.create!(first_name: "Hakim", last_name: "Benkacem", email: "hakim@gmail.com", password: 123456)
+# francois = User.create!(first_name: "Francois", last_name: "Vallat", email: "francois@gmail.com", password: 123456)
+# abdullah = User.create!(first_name: "Abdullah", last_name: "Alameen", email: "abdullah@gmail.com", password: 123456)
 
 # puts 'Creating Pokemon data...'
 # gen1_url = 'https://pokeapi.co/api/v2/generation/1'
@@ -57,15 +64,18 @@ for i in 0..19 do
   data['results'].each do |question|
     correct_answer = question['correct_answer']
     incorrect_answers = question['incorrect_answers']
+    incorrect_answer1 = incorrect_answers[0] || ''
+    incorrect_answer2 = incorrect_answers[1] || ''
     problem = CGI.unescapeHTML(question['question']).gsub(/&([#0-9A-Za-z]+);/, "")
     category = question['category']
     Question.create!(
       problem: problem,
       correct_answer: correct_answer,
-      incorrect_answer: incorrect_answers.join(','),
+      incorrect_answer: incorrect_answers[0],
+      incorrect_answer1: incorrect_answers[1],
+      incorrect_answer2: incorrect_answers[2],
       category: category
     )
   end
-  puts 'Seed data generated!'
-
 end
+puts 'Seed data generated!'

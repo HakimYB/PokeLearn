@@ -30,6 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_140635) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category"
+    t.string "incorrect_answer1"
+    t.string "incorrect_answer2"
   end
 
   create_table "quiz_questions", force: :cascade do |t|
