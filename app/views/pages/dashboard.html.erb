@@ -1,3 +1,17 @@
+<div class="main-container">
+  <div class="top-row">
+    <div class="badge-exp col-8">
+      <ul>
+        <li>badge</li>
+      </ul>
+      <div class="exp">
+      </div>
+    </div>
+    <%= link_to "PLAY", "#", class: "button btn-yellow col-4" %>
+  </div>
+
+</div>
+
 <h1><%= @user.username %>'s dashboard</h1>
 
 <% if @user.pokemons.empty? %>
