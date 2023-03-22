@@ -4,6 +4,8 @@ class QuizQuestionsController < ApplicationController
     @quiz_question = QuizQuestion.find(params[:id])
     @answer = @quiz_question.question.correct_answer
     @incorrect = @quiz_question.question.incorrect_answer
+    @incorrect_one = @quiz_question.question.incorrect_answer1
+    @incorrect_two = @quiz_question.question.incorrect_answer2
     @problem = @quiz_question.question.problem
   end
 
@@ -11,13 +13,12 @@ class QuizQuestionsController < ApplicationController
   end
 
   def update
-
-    if @problem.user_answer?
-
+    @quiz_question.user_answer
+    if @quiz_question.user_answer?
+      redirect_to quizzzes_path(params[:id])
     else
 
     end
-
   end
 
   private

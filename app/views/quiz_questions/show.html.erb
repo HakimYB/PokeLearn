@@ -3,7 +3,7 @@
 </div>
 
 <%= simple_form_for @quiz_question do |f| %>
-  <%= f.input :user_answer, collection: [@answer, @incorrect], :label => @problem %>
+  <%= f.input :user_answer, collection: [@answer, @incorrect, @incorrect_one, @incorrect_two], :label => @problem %>
   <%= f.submit %>
 <% end %>
 
