@@ -28,6 +28,8 @@ class QuizzesController < ApplicationController
     end
     @score = 10 * @total
     @user.point += @score
+    @user.save!
+
 
     if @total == 10
       @new_pokemons = Pokemon.all.sample(5)
