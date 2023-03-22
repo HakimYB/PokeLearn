@@ -11,6 +11,17 @@
       <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow" %>
     </div>
   </div>
+  <div class="search-bar">
+    <%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search a pokemon"
+      %>
+      <%= submit_tag "Search", class: "button btn-yellow" %>
+    <% end %>
+  </div>
+
 
 <div class="dex-row">
   <div class="dex-cards">
