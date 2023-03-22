@@ -1,9 +1,29 @@
-<h1><%= @user.username %>'s dashboard</h1>
+<div class="container">
+  <h1><%= @user.username %>'s dashboard</h1>
+  <div class="dashboard-row d-flex justify-content-between align-items-center">
+    <div class="badge-exp d-flex justify-content-between align-items-center">
+      <ul>
+        <li>badge</li>
+        <li>badge</li>
+        <li>badge</li>
+      </ul>
+      <div class="exp"><h3>@user.points</h3></div>
+      <%= link_to "PLAY", "#", class: "button btn-yellow" %>
+    </div>
+  </div>
 
-<% if @user.pokemons.empty? %>
-  <p>There is no pokemon</p>
-<% else %>
-  <% @user.pokemons.each do |pokemon| %>
-    <%= pokemon.name %>
-  <% end %>
-<% end %>
+  <div class="dex-row">
+
+    <div class="dex-cards">
+      <div class="dex-card">
+        <h3>Pokemon's name</h3>
+
+      </div>
+    </div>
+
+    <div class="detail-card">
+      each card will be here
+    </div>
+
+  </div>
+</div>

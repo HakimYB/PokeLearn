@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard"
 
   resources :quizzes, only: [:create, :new, :show]
-  resources :quiz_questions, only: [:show]
+  resources :quiz_questions, only: [:show, :update, :edit]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

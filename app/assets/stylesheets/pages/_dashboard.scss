@@ -1,0 +1,42 @@
+.dashboard-row {
+  height: 80px;
+  width: 100%;
+  background-color: rgb(226, 166, 166);
+}
+
+.badge-exp {
+  background-color:$blue;
+  width: 80%;
+  height: 80%;
+  li {
+    display: inline;
+  }
+}
+
+.dex-row {
+  width: 100%;
+  background-color: rgb(143, 223, 186);
+  display: flex;
+}
+
+.dex-cards {
+  background-color: aqua;
+  width: 60%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.dex-card {
+  background-color: white;
+  height: 160px;
+  width: 220px;
+  margin: 10px auto;
+}
+
+.detail-card {
+  height: 60vh;
+  width: 30%;
+  background-color: $yellow;
+  margin: 0 auto;
+}

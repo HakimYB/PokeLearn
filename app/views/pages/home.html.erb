@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="button">
+  <% if user_signed_in? %>
+    <h1>Signed_in</h1>
+    <p>Find me in app/views/pages/home.html.erb</p>
+    <%# button to the dashboard %>
+
+  <% else %>
+    <h1>loged_out</h1>
+    <%# button to the log in %>
+  <% end %>
+</div>

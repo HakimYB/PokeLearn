@@ -1,0 +1,22 @@
+.button {
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: $flexo;
+  height: 50px;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-yellow {
+  color: $gray;
+  background: $yellow;
+  margin: 5px;
+}
+.btn-yellow:hover {
+  background: #eac20d;
+  color: $gray;
+}
