@@ -1,11 +1,7 @@
-<div class="button">
-  <% if user_signed_in? %>
-    <h1>Signed_in</h1>
-    <p>Find me in app/views/pages/home.html.erb</p>
-    <%# button to the dashboard %>
+<% if user_signed_in? %>
+  <a href="/dashboard" class="button btn-blue"><i class="fa-solid fa-house"></i></a>
 
-  <% else %>
-    <h1>loged_out</h1>
-    <%# button to the log in %>
-  <% end %>
-</div>
+
+<% else %>
+  <%= link_to "Sign in", new_user_session_path, class:"button btn-blue" %>
+<% end %>
