@@ -9,7 +9,7 @@ class QuizzesController < ApplicationController
     @quiz.user = current_user
     if @quiz.save
       10.times do
-        QuizQuestion.create(quiz: @quiz, question: Question.all.sample)
+        QuizQuestion.create(quiz: @quiz, question: Question.all.sample) #Quiz will be a specific category? questions' categpry => 13 ; pokemon types:15
       end
       redirect_to quiz_question_path(@quiz.quiz_questions.first)
     else
@@ -29,7 +29,6 @@ class QuizzesController < ApplicationController
     @score = 10 * @total
     @user.point += @score
     @user.save!
-
 
     if @total == 10
       @new_pokemons = Pokemon.all.sample(4)

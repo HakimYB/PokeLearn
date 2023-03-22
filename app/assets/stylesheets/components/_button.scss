@@ -1,5 +1,5 @@
 .button {
-  border-radius: 4px;
+  border-radius: 100px;
   transition: background 0.3s ease;
   text-decoration: none;
   font-size: 18px;
@@ -17,6 +17,26 @@
   margin: 5px;
 }
 .btn-yellow:hover {
-  background: #eac20d;
   color: $gray;
+  background: #eac20d;
+}
+
+.btn-blue {
+  color: white;
+  background: $blue;
+  margin: 5px;
+}
+.btn-blue:hover {
+  color: white;
+  background: #0447c3;
+}
+
+.btn-green {
+  color: white;
+  background: $green;
+  margin: 5px;
+}
+.btn-green:hover {
+  color: white;
+  background: rgb(4, 124, 20);
 }
