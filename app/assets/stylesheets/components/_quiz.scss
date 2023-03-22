@@ -21,7 +21,7 @@ label.box{
   cursor: pointer;
   border: 1px solid #ddd
 }
-#five:checked~label.fifth, #six:checked~label.sixth, #seven:checked~label.seveth, #eight:checked~label.eighth{
+#five:checked~label.fifth, #six:checked~label.sixth, #seven:checked~label.seveth, #eight:checked~label.eighth, #index:checked~label.index{
   border-color: #D5A100;
   border-width: 3px;
 }
