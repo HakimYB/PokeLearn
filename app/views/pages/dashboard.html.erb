@@ -13,17 +13,21 @@
   </div>
 
   <div class="dex-row">
-
     <div class="dex-cards">
-      <div class="dex-card">
-        <h3>Pokemon's name</h3>
+       <% @pokemons.each do |pokemon| %>
+        <div class="dex-card">
+          <h3><%= pokemon.name %></h3>
+          <div>
+            <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
+          </div>
+          <% pokemon.types.each do |type| %>
+            <div class="tag">
+              <%= type.capitalize %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
 
-      </div>
     </div>
-
-    <div class="detail-card">
-      each card will be here
-    </div>
-
   </div>
 </div>
