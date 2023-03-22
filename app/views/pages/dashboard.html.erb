@@ -12,22 +12,25 @@
     </div>
   </div>
 
-  <div class="dex-row">
-    <div class="dex-cards">
-       <% @pokemons.each do |pokemon| %>
-        <div class="dex-card">
-          <h3><%= pokemon.name %></h3>
-          <div>
-            <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
-          </div>
-          <% pokemon.types.each do |type| %>
-            <div class="tag">
-              <%= type.capitalize %>
-            </div>
-          <% end %>
+<div class="dex-row">
+  <div class="dex-cards">
+    <% @pokemons.each do |pokemon| %>
+      <div class="dex-card">
+        <div class="dex-card-img-container">
+          <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
         </div>
-      <% end %>
-
-    </div>
+        <div class="dex-card-info-container">
+          <div class="dex-card-title">
+            <h3><%= pokemon.name %></h3>
+            <% pokemon.types.each do |type| %>
+              <div class="tag">
+                <%= type.capitalize %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>
