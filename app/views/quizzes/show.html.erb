@@ -1,1 +1,16 @@
-<h1>results</h1>
+<div class="container">
+  <div>
+    <h1>Results</h1>
+    <h2><span><%= @total %></span>/10</h2>
+    <h2>+ <%= @score %> exp</h2>
+    <p>TOTAL: <span><%= @user.point %></span> exp</p>
+  </div>
+
+  <div class="new-pokemon">
+    <h2>You caught:</h2>
+    <% @new_pokemons.each do |pokemon|  %>
+      <%= pokemon.name.capitalize %>
+    <% end %>
+  </div>
+  <a href="/dashboard"><i class="fa-solid fa-house"></i></a>
+</div>

@@ -18,7 +18,31 @@ class QuizzesController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @quiz = Quiz.find(params[:id])
+    @total = 0
+    @quiz.quiz_questions.each do |q|
+      if q.user_answer == q.question.correct_answer
+        @total += 1
+      end
+    end
+    @score = 10 * @total
+    @user.point += @score
 
+    if @total == 10
+      @new_pokemons = Pokemon.all.sample(5)
+    elsif @total >= 7
+      @new_pokemons = Pokemon.all.sample(4)
+    elsif @total >= 4
+      @new_pokemons = Pokemon.all.sample(3)
+    elsif @total >= 1
+      @new_pokemons = Pokemon.all.sample(2)
+    else
+      @new_pokemons = Pokemon.all.sample(1)
+    end
+    @new_pokemons.each do |pokemon|
+      UserPokemon.create(user: @user, pokemon: pokemon)
+    end
   end
 
   private
