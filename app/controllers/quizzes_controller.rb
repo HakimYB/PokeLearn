@@ -32,10 +32,8 @@ class QuizzesController < ApplicationController
 
 
     if @total == 10
-      @new_pokemons = Pokemon.all.sample(5)
-    elsif @total >= 7
       @new_pokemons = Pokemon.all.sample(4)
-    elsif @total >= 4
+    elsif @total >= 6
       @new_pokemons = Pokemon.all.sample(3)
     elsif @total >= 1
       @new_pokemons = Pokemon.all.sample(2)
