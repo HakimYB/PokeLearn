@@ -6,8 +6,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @pokemons = Pokemon.all
     @user = current_user
-    # @user_pokemons = @user.
   end
 
   def map

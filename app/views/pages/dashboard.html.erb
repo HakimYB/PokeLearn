@@ -7,23 +7,30 @@
         <li>badge</li>
         <li>badge</li>
       </ul>
-      <div class="exp"><h3>@user.points</h3></div>
+      <div class="exp"><h3>exp: <%= @user.point %></h3></div>
       <%= link_to "PLAY", "#", class: "button btn-yellow" %>
     </div>
   </div>
 
-  <div class="dex-row">
-
-    <div class="dex-cards">
+<div class="dex-row">
+  <div class="dex-cards">
+    <% @pokemons.each do |pokemon| %>
       <div class="dex-card">
-        <h3>Pokemon's name</h3>
-
+        <div class="dex-card-img-container">
+          <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
+        </div>
+        <div class="dex-card-info-container">
+          <div class="dex-card-title">
+            <h3><%= pokemon.name %></h3>
+            <% pokemon.types.each do |type| %>
+              <div class="tag">
+                <%= type.capitalize %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="detail-card">
-      each card will be here
-    </div>
-
+    <% end %>
   </div>
+</div>
 </div>

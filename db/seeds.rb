@@ -16,10 +16,10 @@ Question.destroy_all
 User.destroy_all
 
 puts "Creating User data..."
-ayano = User.create!(first_name: "Ayano", last_name: "Umemoto", email: "ayano@gmail.com", password: 123456)
-hakim = User.create!(first_name: "Hakim", last_name: "Benkacem", email: "hakim@gmail.com", password: 123456)
-francois = User.create!(first_name: "Francois", last_name: "Vallat", email: "francois@gmail.com", password: 123456)
-abdullah = User.create!(first_name: "Abdullah", last_name: "Alameen", email: "abdullah@gmail.com", password: 123456)
+ayano = User.create!(username: "Ayano", email: "ayano@gmail.com", password: 123456)
+hakim = User.create!(username: "Hakim", email: "hakim@gmail.com", password: 123456)
+francois = User.create!(username: "Francois",  email: "francois@gmail.com", password: 123456)
+abdullah = User.create!(username: "Abdullah", email: "abdullah@gmail.com", password: 123456)
 
 puts 'Creating Pokemon data...'
 gen1_url = 'https://pokeapi.co/api/v2/generation/1'
