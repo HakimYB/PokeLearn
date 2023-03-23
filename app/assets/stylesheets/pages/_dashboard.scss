@@ -131,8 +131,8 @@
 }
 
 .big-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
 }
 .big-card{
   width: 100%;
@@ -141,12 +141,16 @@
   justify-content: center;
 }
 .big-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 80%;
-  margin: 0 auto;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+    position: fixed;
+    right: 80px;
+    width: 40vw;
+    height: 80vh;
+    margin-left:0px;
+  }
+  .big-card-left{
+    width: 50vw;
+    left: 80px;
+    position: absolute;
+    margin-top: 30px;
   }
