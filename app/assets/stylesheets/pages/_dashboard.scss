@@ -17,21 +17,110 @@
   width: 100%;
   background-color: rgb(143, 223, 186);
   display: flex;
+  justify-content: center;
 }
 
 .dex-cards {
-  background-color: aqua;
-  width: 60%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .dex-card {
+  position: relative;
   background-color: white;
-  height: 160px;
+  height: 240px;
   width: 220px;
-  margin: 10px auto;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .dex-card-img-container {
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .dex-card-info-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90px;
+    text-align: center;
+  }
+
+  .tag {
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 2px 5px;
+    margin-right: 5px;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+  }
+
+  &.bug { background-color: #8CB230; }
+  &.grass { background-color: #77CC55; }
+  &.fire { background-color: #FF4422; }
+  &.water { background-color: #44AAFF; }
+  &.normal { background-color: #AAAA99; }
+  &.poison { background-color: #AA5599; }
+  &.electric { background-color: #FFC600; }
+  &.ground { background-color: #DDBB55; }
+  &.fighting { background-color: #BB5544; }
+  &.psychic { background-color: #FF5599; }
+  &.rock { background-color: #BBAA66; }
+  &.ice { background-color: #66CCCC; }
+  &.ghost { background-color: #6666BB; }
+  &.dragon { background-color: #7766EE; }
+  &.dark { background-color: #775544; }
+  &.steel { background-color: #AAAABB; }
+  &.fairy { background-color: #EE99EE; }
+  &.flying { background-color: #A98FF3; }
+
+  .tag {
+    &.bug { background-color: #8CB230; }
+    &.grass { background-color: #77CC55; }
+    &.fire { background-color: #FF4422; }
+    &.water { background-color: #44AAFF; }
+    &.normal { background-color: #AAAA99; }
+    &.poison { background-color: #AA5599; }
+    &.electric { background-color: #FFC600; }
+    &.ground { background-color: #DDBB55; }
+    &.fighting { background-color: #BB5544; }
+    &.psychic { background-color: #FF5599; }
+    &.rock { background-color: #BBAA66; }
+    &.ice { background-color: #66CCCC; }
+    &.ghost { background-color: #6666BB; }
+    &.dragon { background-color: #7766EE; }
+    &.dark { background-color: #775544; }
+    &.steel { background-color: #AAAABB; }
+    &.fairy { background-color: #EE99EE; }
+    &.flying { background-color: #A98FF3; }
+  }
+  }
+
+.dex-card-types {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .detail-card {

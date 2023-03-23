@@ -6,8 +6,11 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @pokemons = Pokemon.all
-    @user = current_user
+    if params[:query].present?
+      @user_pokemons = UserPokemon.search_by_pokemon(params[:query]).where(user: current_user)
+    else
+      @user_pokemons = UserPokemon.where(user: current_user)
+    end
   end
 
   def map

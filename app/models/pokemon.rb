@@ -4,4 +4,6 @@ class Pokemon < ApplicationRecord
   def types
     JSON.parse(self.pokemon_type)
   end
+
+
 end
