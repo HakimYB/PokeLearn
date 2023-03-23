@@ -8,6 +8,7 @@ class QuizQuestionsController < ApplicationController
     @incorrect_three = @quiz_question.question.incorrect_answer2
     @problem = @quiz_question.question.problem
     @user_answer = @quiz_question.user_answer
+    @number = 1
   end
 
   def edit
@@ -28,7 +29,7 @@ class QuizQuestionsController < ApplicationController
     @next_quiz_question = @unanswered_questions.sample
     # test if any unanswered
     if @unanswered_questions.empty?
-      # if noone left go to results
+      # if none left go to results
       redirect_to quiz_path(@quiz)
     else
       # or give next q
