@@ -1,11 +1,11 @@
 .result-container {
   width: 80%;
   margin: 20px auto;
+  margin-bottom: 1px !important;
   text-align: center;
   span {
     color: $green;
     font-weight: 600;
-    font-size: 2rem;
   }
   .fa-house {
     font-size: 30px;
@@ -20,4 +20,8 @@
   h2 {
     color: $blue;
   }
+}
+
+.fa-house {
+  margin-bottom: 10px;
 }
