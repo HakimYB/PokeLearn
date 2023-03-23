@@ -7,6 +7,7 @@ class QuizQuestionsController < ApplicationController
     @incorrect_two = @quiz_question.question.incorrect_answer1
     @incorrect_three = @quiz_question.question.incorrect_answer2
     @problem = @quiz_question.question.problem
+    @user_answer = @quiz_question.user_answer
   end
 
   def edit

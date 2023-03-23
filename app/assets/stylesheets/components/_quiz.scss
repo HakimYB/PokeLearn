@@ -21,7 +21,7 @@ label.box{
   cursor: pointer;
   border: 1px solid #ddd
 }
-#five:checked~label.fifth, #six:checked~label.sixth, #seven:checked~label.seveth, #eight:checked~label.eighth{
+#five:checked~label.fifth, #six:checked~label.sixth, #seven:checked~label.seveth, #eight:checked~label.eighth, #index:checked~label.index{
   border-color: #D5A100;
   border-width: 3px;
 }
@@ -45,11 +45,6 @@ label.box.circle{
   display: inline-block
 }
 
-input[
-  type="radio"]{
-    display: none
-}
-
 .btn.btn-primary{
   border-radius: 25px;
   margin-top: 20px
@@ -67,4 +62,14 @@ input[
 
 .btn.btn-primary{
   background-color: #0075BE;
+}
+
+input[type="radio" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 0px 5px;
+  padding: initial;
+  border: 1px solid black !important;
 }
