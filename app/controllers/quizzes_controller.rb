@@ -2,6 +2,11 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
+    if params[:query].present?
+      @pokemons = Pokemon.search_by_name(params[:query])
+    else
+      @pokemons = Pokemon.all
+    end
   end
 
   def create
