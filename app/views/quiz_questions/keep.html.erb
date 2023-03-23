@@ -25,6 +25,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="container mb-5">
   <div class="col-12">
     <p class="fw-bold mt-5"><%= @problem %></p>
@@ -47,3 +49,5 @@
     </div>
   </div>
 </div>
+
+<%= f.input :user_answer, as: :radio_buttons, collection: randomize%>

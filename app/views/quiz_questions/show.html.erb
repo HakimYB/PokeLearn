@@ -4,10 +4,18 @@
 
 <div class="container">
   <%= simple_form_for @quiz_question do |f| %>
-    <%= f.input :user_answer, as: :check_boxes, collection: [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle, :label => @problem %>
+    <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle%>
+    <%= f.input :user_answer, as: :radio_buttons, collection: [[randomize[0], randomize[0]], [randomize[1], randomize[1]], [randomize[2], randomize[2]], [randomize[3], randomize[3]]], :label => @problem %>
     <%= f.submit %>
   <% end %>
 </div>
 
-<% possibilites = [@answer, @incorrect, @incorrect_two, @incorrect_three] %>
-<% radomize = possibilites.shuffle %>
+
+
+
+<%# <div class="container">
+  <%= simple_form_for @quiz_question do |f| %>
+  <%# <%= f.input :user_answer, as: :check_boxes, collection: [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle, :label => @problem %>
+    <%# <%= f.submit %>
+  <%# <% end %>
+<%# </div> %>
