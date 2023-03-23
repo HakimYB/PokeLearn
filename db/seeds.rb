@@ -66,7 +66,7 @@ for i in 0..19 do
     incorrect_answers = question['incorrect_answers']
     incorrect_answer1 = incorrect_answers[0] || ''
     incorrect_answer2 = incorrect_answers[1] || ''
-    problem = CGI.unescapeHTML(question['question']).gsub(/&([#0-9A-Za-z]+);/, "")
+    problem = CGI.unescapeHTML(question['question']).gsub(/&([#0-9A-Za-z]+);/, "").gsub(/&#039;/, "'")
     category = question['category']
     Question.create!(
       problem: problem,
@@ -77,5 +77,9 @@ for i in 0..19 do
       category: category
     )
   end
+end
+users = User.all
+users.each do |user|
+  user.pokemons = Pokemon.all.sample(3)
 end
 puts 'Seed data generated!'
