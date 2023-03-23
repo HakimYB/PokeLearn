@@ -17,35 +17,35 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
   }
-  
+
   // Smallest device
   @media (min-width: 100px) and (max-width: 575px) {
     .spacing {
       grid-template-columns: 1fr;
     }
   }
-  
+
   // Small devices (landscape phones, 576px and up)
   @media (min-width: 576px) {
     .spacing {
       grid-template-columns: 1fr;
     }
   }
-  
+
   // Medium devices (tablets, 768px and up)
   @media (min-width: 768px) {
     .spacing {
       grid-template-columns: 1fr 1fr;
     }
   }
-  
+
   // Large devices (desktops, 992px and up)
   @media (min-width: 992px) {
     .spacing {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
-  
+
   // Extra large devices (large desktops, 1200px and up)
   @media (min-width: 1200px) {
     .spacing {
@@ -63,30 +63,35 @@
   padding: 500px 0;
 }
 
-.first-pic {
+.fire-pic {
   height: 200px;
   width: 200px;
   margin-left: 50px;
   margin-bottom: 5px;
 }
 
-.second-pic {
+.grass-pic {
   height: 200px;
   width: 200px;
   margin-left: 10px;
   margin-bottom: 5px;
 }
 
-.third-pic {
+.water-pic {
   height: 200px;
   width: 200px;
   margin-left: 10px;
   margin-bottom: 5px;
 }
 
-.forth-pic {
+.bug-pic {
   height: 200px;
   width: 200px;
   margin-left: 10px;
   margin-bottom: 5px;
+}
+
+.element-icons {
+  width: 4rem;
+  height: 4rem;
 }
