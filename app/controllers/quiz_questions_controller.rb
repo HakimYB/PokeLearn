@@ -8,13 +8,16 @@ class QuizQuestionsController < ApplicationController
     @incorrect_three = @quiz_question.question.incorrect_answer2
     @problem = @quiz_question.question.problem
     @user_answer = @quiz_question.user_answer
-    @number = 1
+
+    check = @quiz_question.quiz.quiz_questions.select { |question| question.user_answer.nil? }
+    @number = 10 - check.length + 1
   end
 
   def edit
   end
 
   def update
+    p params
     # find quiz
     @quiz_question = QuizQuestion.find(params[:id])
     # asign user asnwer
