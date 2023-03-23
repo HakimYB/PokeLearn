@@ -15,16 +15,12 @@ class PagesController < ApplicationController
     else
       @user_pokemons = UserPokemon.where(user: current_user)
     end
-    name = @user_pokemons.first.pokemon.name
+    @current_pokemon = @user_pokemons.first.pokemon
+    name = @current_pokemon.name
     url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
-    pokemon = JSON.parse(URI.open(url).read)
-
-    @abilities = pokemon["ablities"]
-
-    pokemon_species.each do |species|
-      species_data = JSON.parse(URI.open(species['url']).read)
-      name = species_data['name'
-
+    @pokemon = JSON.parse(URI.open(url).read)
+    species_url = "https://pokeapi.co/api/v2/pokemon-species/#{@current_pokemon.id}/"
+    @description = JSON.parse(URI.open(species_url).read)
   end
 
   def map
