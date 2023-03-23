@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= @user.username %>'s dashboard</h1>
+  <h1><%= current_user.username %>'s dashboard</h1>
   <div class="dashboard-row d-flex justify-content-between align-items-center">
     <div class="badge-exp d-flex justify-content-between align-items-center">
       <ul>
@@ -7,9 +7,10 @@
         <li>badge</li>
         <li>badge</li>
       </ul>
-      <div class="exp"><h3>exp: <%= @user.point %></h3></div>
-      <%= link_to "PLAY", "#", class: "button btn-yellow" %>
+      <div class="exp"><h3>exp: <%= current_user.point %></h3></div>
+      <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow" %>
     </div>
+    <h2><%= @user_pokemons.length %></h2>
   </div>
   <div class="search-bar">
     <%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
@@ -23,25 +24,25 @@
   </div>
 
 
-<div class="dex-row">
-  <div class="dex-cards">
-    <% @pokemons.each do |pokemon| %>
-      <div class="dex-card">
-        <div class="dex-card-img-container">
-          <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
-        </div>
-        <div class="dex-card-info-container">
-          <div class="dex-card-title">
-            <h3><%= pokemon.name %></h3>
-            <% pokemon.types.each do |type| %>
-              <div class="tag">
-                <%= type.capitalize %>
-              </div>
-            <% end %>
+  <div class="dex-row">
+    <div class="dex-cards">
+      <% @user_pokemons.each do |user_pokemon| %>
+        <div class="dex-card <%=user_pokemon.pokemon.types.first %>">
+          <div class="dex-card-img-container">
+            <img src="<%= user_pokemon.pokemon.image_url %>" alt="<%= user_pokemon.pokemon.name %> image">
+          </div>
+          <div class="dex-card-info-container">
+            <div class="dex-card-title">
+              <h3><%= user_pokemon.pokemon.name.capitalize %></h3>
+              <% user_pokemon.pokemon.types.each do |type| %>
+                <div class="tag <%=type %>">
+                  <%= type.capitalize %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>

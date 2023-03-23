@@ -1,1 +1,36 @@
-<h1>results</h1>
+<div class="container result-container">
+  <h1>Results:</h1>
+  <h2 class="result-face">
+    <% if @total >= 7 %> <i class="fa-solid fa-face-laugh-squint"></i>
+    <% elsif @total >= 3 %> <i class="fa-solid fa-face-smile"></i>
+    <% elsif @total >= 0 %> <i class="fa-solid fa-face-tired"></i>
+    <% end %>
+  </h2>
+
+  <p><span><%= @total %></span>/10</p>
+  <p>+ <span><%= @score %></span> exp</p>
+  <p>TOTAL: <span><%= @user.point %></span> exp</p>
+  <div class="new-pokemon">
+    <h2>You caught:</h2>
+     <div class="dex-cards">
+      <% @new_pokemons.each do |pokemon| %>
+        <div class="dex-card <%=pokemon.types.first %>">
+          <div class="dex-card-img-container">
+            <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
+          </div>
+          <div class="dex-card-info-container">
+            <div class="dex-card-title">
+              <h3><%= pokemon.name.capitalize %></h3>
+              <% pokemon.types.each do |type| %>
+                <div class="tag <%=type %>">
+                  <%= type.capitalize %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <a href="/dashboard"><i class="fa-solid fa-house"></i></a>
+</div>

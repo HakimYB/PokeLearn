@@ -62,27 +62,66 @@
     flex-direction: column;
     justify-content: space-between;
     height: 90px;
-  }
-
-  .dex-card-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
   }
 
   .tag {
-    background-color: #9bcc50;
     color: white;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 2px 5px;
     margin-right: 5px;
     font-size: 0.8rem;
     text-transform: capitalize;
+    border: 3px solid rgba(255, 255, 255, 0.7);
   }
 
-}
+  &.bug { background-color: #8CB230; }
+  &.grass { background-color: #77CC55; }
+  &.fire { background-color: #FF4422; }
+  &.water { background-color: #44AAFF; }
+  &.normal { background-color: #AAAA99; }
+  &.poison { background-color: #AA5599; }
+  &.electric { background-color: #FFC600; }
+  &.ground { background-color: #DDBB55; }
+  &.fighting { background-color: #BB5544; }
+  &.psychic { background-color: #FF5599; }
+  &.rock { background-color: #BBAA66; }
+  &.ice { background-color: #66CCCC; }
+  &.ghost { background-color: #6666BB; }
+  &.dragon { background-color: #7766EE; }
+  &.dark { background-color: #775544; }
+  &.steel { background-color: #AAAABB; }
+  &.fairy { background-color: #EE99EE; }
+  &.flying { background-color: #A98FF3; }
 
+  .tag {
+    &.bug { background-color: #8CB230; }
+    &.grass { background-color: #77CC55; }
+    &.fire { background-color: #FF4422; }
+    &.water { background-color: #44AAFF; }
+    &.normal { background-color: #AAAA99; }
+    &.poison { background-color: #AA5599; }
+    &.electric { background-color: #FFC600; }
+    &.ground { background-color: #DDBB55; }
+    &.fighting { background-color: #BB5544; }
+    &.psychic { background-color: #FF5599; }
+    &.rock { background-color: #BBAA66; }
+    &.ice { background-color: #66CCCC; }
+    &.ghost { background-color: #6666BB; }
+    &.dragon { background-color: #7766EE; }
+    &.dark { background-color: #775544; }
+    &.steel { background-color: #AAAABB; }
+    &.fairy { background-color: #EE99EE; }
+    &.flying { background-color: #A98FF3; }
+  }
+  }
+
+.dex-card-types {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .detail-card {
   height: 60vh;
