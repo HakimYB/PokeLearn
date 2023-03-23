@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid w-75">
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to dashboard_path, class: "navbar-brand" do %>
       <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1200px-Pok%C3%A9_Ball_icon.svg.png" %>
     <% end %>
 
@@ -12,7 +12,6 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <a href="/dashboard"><i class="fa-solid fa-house fs-3"></i></a>
           </li>
 
           <li class="nav-item dropdown">
