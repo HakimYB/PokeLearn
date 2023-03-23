@@ -2,6 +2,9 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
+    @elements = ["bug", "ground", "normal", "water", "fighting", "fire",
+      "psychic", "grass", "rock", "electric", "poison", "ghost", "ice",
+      "dragon", "fairy", "poison", "rock"]
   end
 
   def create
