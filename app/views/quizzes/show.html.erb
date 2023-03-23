@@ -16,25 +16,27 @@
 
   <div class="new-pokemon">
     <h2>You caught:</h2>
-     <div class="dex-cards">
-      <% @new_pokemons.each do |pokemon| %>
-        <div class="dex-card <%=pokemon.types.first %>">
-          <div class="dex-card-img-container">
-            <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
-          </div>
-          <div class="dex-card-info-container">
-            <div class="dex-card-title">
-              <h3><%= pokemon.name.capitalize %></h3>
-              <% pokemon.types.each do |type| %>
-                <div class="tag <%=type %>">
-                  <%= type.capitalize %>
+    <div class="dex-cards">
+        <% @new_pokemons.each do |pokemon| %>
+          <div class="dex-card <%=pokemon.types.first %>">
+            <div class="dex-card-img-container">
+              <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
+            </div>
+            <div class="dex-card-info-container">
+              <div class="dex-card-title">
+                <h3><%= pokemon.name.capitalize %></h3>
+                <div class="dex-card-types">
+                <% pokemon.types.each do |type| %>
+                  <div class="tag <%=type %>">
+                    <%= type.capitalize %>
+                  </div>
+                <% end %>
                 </div>
-              <% end %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
   </div>
 </div>
 
@@ -46,13 +48,13 @@
   <ul>
     <li>
     <div class="question">
-      Question: <p><%= f.question.problem %></p>
+    Question: <p><%= f.question.problem %></p>
     </div>
     <div class="correct">
-      Correct Answer: <p><%= f.question.correct_answer %></p>
+      <p><i class="fa-regular fa-circle-check"></i> <%= f.question.correct_answer %></p>
     </div>
     <div class="wrong">
-      Your Answer: <p><%= f.user_answer %></p>
+      Your Answer: <p><i class="fa-regular fa-circle-xmark"></i> <%= f.user_answer %></p>
     </div>
       </li>
   </ul>

@@ -52,13 +52,24 @@
     <div class="big-card-header"></div>
     <div class="big-card-screen">
       <div class="big-card-screen-inner">
-        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="Bulbasaur" class="pokemon-image">
-        <h1 class="pokemon-name">Bulbasaur</h1>
+        <img src="<%= @user_pokemons.first.pokemon.image_url %>" alt="Bulbasaur" class="pokemon-image">
+        <h1 class="pokemon-name"><%= @user_pokemons.first.pokemon.name.capitalize  %></h1>
+      </div>
+
+      <div class="dex-card-types">
+        <% @user_pokemons.first.pokemon.types.each do |type| %>
+          <div class="tag <%=type %>">
+            <%= type.capitalize %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="big-card-info">
-      <div class="big-card-info-item">Type: Grass</div>
-      <div class="big-card-info-item">Height: 0.7 m</div>
+      <div class="big-card-info-item">
+        <% @abilities.each do |ability| %>
+         <%= ability["ablity"]["name"] %>
+        <% end %>
+      </div>
       <div class="big-card-info-item">Weight: 6.9 kg</div>
     </div>
   </div>

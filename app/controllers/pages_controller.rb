@@ -1,3 +1,7 @@
+require "json"
+require "open-uri"
+
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
@@ -11,6 +15,16 @@ class PagesController < ApplicationController
     else
       @user_pokemons = UserPokemon.where(user: current_user)
     end
+    name = @user_pokemons.first.pokemon.name
+    url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
+    pokemon = JSON.parse(URI.open(url).read)
+
+    @abilities = pokemon["ablities"]
+
+    pokemon_species.each do |species|
+      species_data = JSON.parse(URI.open(species['url']).read)
+      name = species_data['name'
+
   end
 
   def map
