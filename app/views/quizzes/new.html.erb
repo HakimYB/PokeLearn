@@ -1,12 +1,25 @@
-<h1>Choose Your Path!</h1>
-
-<div class = "card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdna.artstation.com/p/assets/images/images/002/087/020/large/saleh-ahmed-grnislandmap-allb.jpg?1457038776);">
- <div class = "spacing">
-  <% @elements.each do |e| %>
-    <%= simple_form_for @quiz do |f| %>
-      <%= f.input :element, input_html: { class: 'hide', value: "#{e}"}, label: false %>
-      <%= image_submit_tag "#{e}.png", class: "element-icons #{e}-pic" %>
-    <% end %>
-  <% end %>
- </div>
+<div class="text-center heading">
+  <h1>Choose Your Path!</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <h3 class="sticky-header text-center">Click</h3>
+      <div class = "card-category map sticky-map" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdna.artstation.com/p/assets/images/images/002/087/020/large/saleh-ahmed-grnislandmap-allb.jpg?1457038776);">
+        <div class = "spacing">
+          <% @elements.each do |e| %>
+            <%= simple_form_for @quiz do |f| %>
+              <%= f.input :element, input_html: { class: 'hide', value: "#{e}"}, label: false %>
+              <%= image_submit_tag "#{e}.png", class: "element-icons #{e}-pic" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="pokemon-cards">
+        search bar and pokemon cards will be here
+      </div>
+    </div>
+  </div>
 </div>

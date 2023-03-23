@@ -1,3 +1,8 @@
+.map-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -16,6 +21,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
+    width: 100%;
+    height: 100%;
   }
 
   // Smallest device
@@ -94,4 +101,26 @@
 .element-icons {
   width: 4rem;
   height: 4rem;
+}
+
+.map {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+}
+
+.sticky-map {
+  position: sticky;
+  top: 30px;
+}
+
+.pokemon-cards {
+  width: 100%;
+  height: 200vh;
+
 }

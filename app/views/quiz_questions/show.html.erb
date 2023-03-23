@@ -2,7 +2,7 @@
   <h1>Quiz time!</h1>
 </div>
 
-<div class="container">
+<div class="quiz-container">
   <p>Question number <%= @number%>/10</p>
   <%= simple_form_for @quiz_question do |f| %>
     <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle%>
