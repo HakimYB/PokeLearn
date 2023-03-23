@@ -52,33 +52,33 @@
     <div class="big-card-header"></div>
     <div class="big-card-screen">
       <div class="big-card-screen-inner">
-        <img src="<%= @user_pokemons.first.pokemon.image_url %>" alt="Bulbasaur" class="pokemon-image">
+        <img src="<%= @user_pokemons.first.pokemon.image_url %>" alt="<% @user_pokemons.first.pokemon.name %>" class="pokemon-image">
         <h1 class="pokemon-name"><%= @user_pokemons.first.pokemon.name.capitalize  %></h1>
       </div>
 
+      <div class="big-card-info">
+        <div class="big-card-info-item ability">Ability:
+          <% @pokemon["abilities"].each do |ability| %>
+            <p><%= ability["ability"]["name"] %></p>
+          <% end %>
+        </div>
+        <div class="big-card-info-item"><%= @description["flavor_text_entries"][0]["flavor_text"] %></div>
+        <div class="big-card-info-item">Height: <%= @pokemon["height"] %></div>
+        <div class="big-card-info-item">Weight: <%= @pokemon["weight"] %></div>
+        <div class="big-card-info-item">Species: <%= @pokemon["species"]["name"] %></div>
+        <div class="big-card-info-item">
+          <% if @current_pokemon.evolves_to.nil? %>
+            <p>This Pokémon does not evolve.</p>
+          <% else %>
+            <p><%= @current_pokemon.evolves_to %></p>
+          <% end %>
+        </div>
+      </div>
       <div class="dex-card-types">
         <% @user_pokemons.first.pokemon.types.each do |type| %>
           <div class="tag <%=type %>">
             <%= type.capitalize %>
           </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="big-card-info">
-      <div class="big-card-info-item">Ability:
-        <% @pokemon["abilities"].each do |ability| %>
-         <p><%= ability["ability"]["name"] %></p>
-        <% end %>
-      </div>
-      <div class="big-card-info-item">Description: <%= @description["flavor_text_entries"][0]["flavor_text"] %></div>
-      <div class="big-card-info-item">Height: <%= @pokemon["height"] %></div>
-      <div class="big-card-info-item">Weight: <%= @pokemon["weight"] %></div>
-      <div class="big-card-info-item">Species: <%= @pokemon["species"]["name"] %></div>
-      <div class="big-card-info-item">
-        <% if @current_pokemon.evolves_to.nil? %>
-          <p>This Pokémon does not evolve.</p>
-        <% else %>
-          <p><%= @current_pokemon.evolves_to %></p>
         <% end %>
       </div>
     </div>
