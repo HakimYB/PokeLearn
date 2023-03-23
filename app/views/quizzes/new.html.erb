@@ -1,24 +1,25 @@
-<h1>Map Page</h1>
+<h1>Choose Your Path!</h1>
 
-<%= simple_form_for @quiz do |f| %>
-  <%= f.input :element, collection: ["fire", "water", "grass", "electricity"] %>
-  <%= f.submit %>
-<% end %>
+<div class = "card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdna.artstation.com/p/assets/images/images/002/087/020/large/saleh-ahmed-grnislandmap-allb.jpg?1457038776);">
+ <div class = "spacing">
+  <%= simple_form_for @quiz do |f| %>
+   <%= f.input :element, input_html: { class: 'hide'}, label: false%>
+   <%= image_submit_tag "first.png", class: 'first-pic'%>
+  <% end %>
 
-<div class="spacing">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png)">
-    <%= link_to "fire", quizzes_path, class: "btn"%>
+  <%= simple_form_for @quiz do |f| %>
+   <%= f.input :element, input_html: { class: 'hide'}, label: false%>
+   <%= image_submit_tag "second.png", class: 'second-pic'%>
+  <% end %>
+
+  <%= simple_form_for @quiz do |f| %>
+   <%= f.input :element, input_html: { class: 'hide'}, label: false%>
+   <%= image_submit_tag "third.png", class: 'third-pic'%>
+  <% end %>
+
+  <%= simple_form_for @quiz do |f| %>
+   <%= f.input :element, input_html: { class: 'hide'}, label: false%>
+   <%= image_submit_tag "forth.png", class: 'forth-pic'%>
+  <% end %>
  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png)">
-    <%= link_to "water", quizzes_path, class: "btn"%>
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png)">
-    <%= link_to "grass", quizzes_path, class: "btn"%>
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png)">
-    <%= link_to "electricity", quizzes_path, class: "btn primary-btn"%>
-  </div>
-</div>
+ </div>

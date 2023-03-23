@@ -1,7 +1,7 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 570px;
+  height: 1500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,15 +9,13 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .spacing {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 16px;
-    margin-top: 30px;
+    grid-gap: 15px;
   }
   
   // Smallest device
@@ -54,3 +52,41 @@
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
+
+.hide {
+  display: none;
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 500px 0;
+}
+
+.first-pic {
+  height: 200px;
+  width: 200px;
+  margin-left: 50px;
+  margin-bottom: 5px;
+}
+
+.second-pic {
+  height: 200px;
+  width: 200px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.third-pic {
+  height: 200px;
+  width: 200px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.forth-pic {
+  height: 200px;
+  width: 200px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
