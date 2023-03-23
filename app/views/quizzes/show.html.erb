@@ -1,14 +1,14 @@
 <div class="container result-container">
   <h1>Results:</h1>
   <h2 class="result-face">
-    <% if @total >= 7 %> <i class="fa-solid fa-face-laugh-squint"></i>
-    <% elsif @total >= 3 %> <i class="fa-solid fa-face-smile"></i>
-    <% elsif @total >= 0 %> <i class="fa-solid fa-face-tired"></i>
+    <% if @quiz.total >= 7 %> <i class="fa-solid fa-face-laugh-squint"></i>
+    <% elsif @quiz.total >= 3 %> <i class="fa-solid fa-face-smile"></i>
+    <% elsif @quiz.total >= 0 %> <i class="fa-solid fa-face-tired"></i>
     <% end %>
   </h2>
 
-  <p><span><%= @total %></span>/10</p>
-  <p>+ <span><%= @score %></span> exp</p>
+  <p><span><%= @quiz.total %></span>/10</p>
+  <p>+ <span><%= @quiz.score %></span> exp</p>
   <p>TOTAL: <span><%= @user.point %></span> exp</p>
   <div class="new-pokemon">
     <h2>You caught:</h2>
