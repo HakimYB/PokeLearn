@@ -7,6 +7,9 @@ class QuizzesController < ApplicationController
     else
       @pokemons = Pokemon.all
     end
+    @elements = ["bug", "ground", "normal", "water", "fighting", "fire",
+      "psychic", "grass", "rock", "electric", "poison", "ghost", "ice",
+      "dragon", "fairy", "poison", "rock"]
   end
 
   def create
@@ -47,6 +50,16 @@ class QuizzesController < ApplicationController
     end
     @new_pokemons.each do |pokemon|
       UserPokemon.create(user: @user, pokemon: pokemon)
+    end
+
+    @completed = Quiz.find(params[:id])
+    # @incorrect = []
+    # @correct = []
+    @wrong = @completed.quiz_questions.select do |f|
+      f.user_answer != f.question.correct_answer
+      # @incorrect << f.quiz_questions
+      # @incorrect << f.question
+      # @correct << f.question.correct_answer
     end
   end
 

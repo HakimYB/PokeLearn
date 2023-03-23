@@ -2,24 +2,11 @@
 
 <div class = "card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdna.artstation.com/p/assets/images/images/002/087/020/large/saleh-ahmed-grnislandmap-allb.jpg?1457038776);">
  <div class = "spacing">
-  <%= simple_form_for @quiz do |f| %>
-   <%= f.input :element, input_html: { class: 'hide', value: "fire"}, label: false %>
-   <%= image_submit_tag "first.png", class: 'first-pic'%>
-  <% end %>
-
-  <%= simple_form_for @quiz do |f| %>
-   <%= f.input :element, input_html: { class: 'hide', value: "grass"}, label: false%>
-   <%= image_submit_tag "second.png", class: 'second-pic'%>
-  <% end %>
-
-  <%= simple_form_for @quiz do |f| %>
-   <%= f.input :element, input_html: { class: 'hide', value: "water"}, label: false%>
-   <%= image_submit_tag "third.png", class: 'third-pic'%>
-  <% end %>
-
-  <%= simple_form_for @quiz do |f| %>
-   <%= f.input :element, input_html: { class: 'hide', value: "bug"}, label: false%>
-   <%= image_submit_tag "forth.png", class: 'forth-pic'%>
+  <% @elements.each do |e| %>
+    <%= simple_form_for @quiz do |f| %>
+      <%= f.input :element, input_html: { class: 'hide', value: "#{e}"}, label: false %>
+      <%= image_submit_tag "#{e}.png", class: "element-icons #{e}-pic" %>
+    <% end %>
   <% end %>
  </div>
 </div>
@@ -35,7 +22,7 @@
       <%= submit_tag "Search", class: "button btn-yellow" %>
     <% end %>
   </div>
-  <div>
+  <div class>
     <% @pokemons.each do |a| %>
       <div class="dex-row">
     <div class="dex-cards">
