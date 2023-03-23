@@ -43,6 +43,16 @@ class QuizzesController < ApplicationController
     @new_pokemons.each do |pokemon|
       UserPokemon.create(user: @user, pokemon: pokemon)
     end
+
+    @completed = Quiz.find(params[:id])
+    # @incorrect = []
+    # @correct = []
+    @wrong = @completed.quiz_questions.select do |f|
+      f.user_answer != f.question.correct_answer
+      # @incorrect << f.quiz_questions
+      # @incorrect << f.question
+      # @correct << f.question.correct_answer
+    end
   end
 
   private

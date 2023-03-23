@@ -34,3 +34,24 @@
   </div>
   <a href="/dashboard"><i class="fa-solid fa-house"></i></a>
 </div>
+
+<div class="container">
+  <div class="heading text-center">
+    <h2>Incorrect answers</h2>
+  </div>
+  <% @wrong.each do |f|%>
+  <ul>
+    <li>
+    <div class="question">
+      Question: <p><%= f.question.problem %></p>
+    </div>
+    <div class="correct">
+      Correct Answer: <p><%= f.question.correct_answer %></p>
+    </div>
+    <div class="wrong">
+      Your answer: <p><%= f.user_answer %></p>
+    </div>
+      </li>
+  </ul>
+  <% end %>
+</div>
