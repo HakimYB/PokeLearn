@@ -3,7 +3,7 @@
 </div>
 
 <%= simple_form_for @quiz_question do |f| %>
-  <%= f.input :user_answer, as: :check_boxes, collection: [@answer, @incorrect, @incorrect_two, @incorrect_three], :label => @problem %>
+  <%= f.input :user_answer, as: :check_boxes, collection: [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle, :label => @problem %>
   <%= f.submit %>
 <% end %>
 
