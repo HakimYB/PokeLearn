@@ -2,39 +2,20 @@
   <h1>Quiz time!</h1>
 </div>
 
-<%= simple_form_for @quiz_question do |f| %>
-  <%= f.input :user_answer, collection: [@answer, @incorrect, @incorrect_two, @incorrect_three], :label => @problem %>
-  <%= f.submit %>
-<% end %>
-
-
-
-
-
-<div class="container mb-5">
-  <img src="" alt="">
-  <div class="col-12"> <p class="fw-bold mt-5">1. What is the name of our course?</p>
-    <div> <div class="row">
-      <div class="col-md-6"> <input type="radio" name="box" id="five"> <label for="five" class="box fifth w-100">
-        <div class="course"> <span class="circle"></span> <span class="subject">Le Wagon</span> </div> </label>
-        </div>
-          <div class="col-md-6"> <input type="radio" name="box" id="six"> <label for="six" class="box sixth w-100">
-            <div class="course"> <span class="circle"></span> <span class="subject"> Ze Wagon </span>
-              </div> </label>
-                </div>
-                  <div class="col-md-6"> <input type="radio" name="box" id="seven"> <label for="seven" class="box seveth w-100">
-                    <div class="course"> <span class="circle"></span> <span class="subject"> G Wagon</span>
-                      </div> </label>
-                        </div>
-                      <div class="col-md-6"> <input type="radio" name="box" id="eight"> <label for="eight" class="box eighth w-100">
-                    <div class="course"> <span class="circle"></span> <span class="subject">Mc Wagon </span>
-                  </div> </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="col-12"> <div class="d-flex justify-content-center"> <button class="btn btn-primary px-4 py-2 fw-bold"> Submit</button>
-      </div>
-    </div>
-  </div>
+<div class="container">
+  <%= simple_form_for @quiz_question do |f| %>
+    <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle%>
+    <%= f.input :user_answer, as: :radio_buttons, collection: [[randomize[0], randomize[0]], [randomize[1], randomize[1]], [randomize[2], randomize[2]], [randomize[3], randomize[3]]], :label => @problem %>
+    <%= f.submit %>
+  <% end %>
 </div>
+
+
+
+
+<%# <div class="container">
+  <%= simple_form_for @quiz_question do |f| %>
+  <%# <%= f.input :user_answer, as: :check_boxes, collection: [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle, :label => @problem %>
+    <%# <%= f.submit %>
+  <%# <% end %>
+<%# </div> %>
