@@ -15,6 +15,7 @@ class PagesController < ApplicationController
     else
       @user_pokemons = UserPokemon.where(user: current_user)
     end
+
     @current_pokemon = @user_pokemons.first.pokemon
     name = @current_pokemon.name
     url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
