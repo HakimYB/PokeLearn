@@ -181,26 +181,3 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.big-card {
-    margin-top: 30px;
-    position: fixed;
-    right: 80px;
-    width: 40vw;
-    height: 80vh;
-    margin-left:0px;
-  }
-  .big-card-left{
-    width: 50vw;
-    left: 80px;
-    position: absolute;
-    margin-top: 30px;
-  }
-
-  .big-card-screen-inner .pokemon-image {
-    width: 200px;
-  }
-
-  .big-card-info .ability {
-    display :flex;
-    justify-content: space-around;
-  }
