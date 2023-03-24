@@ -1,3 +1,4 @@
+<%= render "shared/navbar" %>
 
 <div class="big-container">
 <div class="row w-100">
@@ -67,25 +68,6 @@
           <div class="tag <%=type %>">
             <%= type.capitalize %>
           </div>
-        <% end %>
-      </div>
-    </div>
-    </div>
-    <div class="big-card-info">
-      <div class="big-card-info-item">Ability:
-        <% @pokemon["abilities"].each do |ability| %>
-         <p><%= ability["ability"]["name"] %></p>
-        <% end %>
-      </div>
-      <div class="big-card-info-item">Description: <%= @description["flavor_text_entries"][0]["flavor_text"] %></div>
-      <div class="big-card-info-item">Height: <%= @pokemon["height"] %></div>
-      <div class="big-card-info-item">Weight: <%= @pokemon["weight"] %></div>
-      <div class="big-card-info-item">Species: <%= @pokemon["species"]["name"] %></div>
-      <div class="big-card-info-item">
-        <% if @current_pokemon.evolves_to.nil? %>
-          <p>This Pokémon does not evolve.</p>
-        <% else %>
-          <p><%= @current_pokemon.evolves_to %></p>
         <% end %>
       </div>
     </div>
