@@ -1,10 +1,8 @@
 <%= render "shared/navbar" %>
-<div class="text-center heading">
-</div>
+
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6">
-      <%# <h3 class="sticky-header text-center">Click</h3> %>
       <div class = "map" >
         <h2>Choose an element</h2>
         <div class = "spacing">
@@ -19,7 +17,7 @@
     </div>
     <div class="col-12 col-md-6">
       <div class="pokemon-cards">
-        <div class="search-bar">
+        <div>
           <%= form_with url: new_quiz_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
                 params[:query],
@@ -30,8 +28,8 @@
           <% end %>
         </div>
 
-        <div class="dex-row scrolling-container">
-          <div class="dex-cards">
+        <div class="dex-row ">
+          <div class="dex-cards scrolling-container">
             <% @pokemons.each do |pokemon| %>
               <div class="dex-card <%=pokemon.types.first %>">
                 <div class="dex-card-img-container">
@@ -41,11 +39,11 @@
                   <div class="dex-card-title">
                     <h3><%= pokemon.name.capitalize %></h3>
                     <div class="dex-card-types">
-                    <% pokemon.types.each do |type| %>
-                      <div class="tag <%=type %>">
-                        <%= type.capitalize %>
-                      </div>
-                    <% end %>
+                      <% pokemon.types.each do |type| %>
+                        <div class="tag <%=type %>">
+                          <%= type.capitalize %>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>
