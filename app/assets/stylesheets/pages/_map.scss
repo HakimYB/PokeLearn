@@ -122,5 +122,22 @@
 .pokemon-cards {
   width: 100%;
   height: 200vh;
+}
 
+.search-bar {
+
+}
+
+.scrolling-container {
+  height: 80vh;
+  overflow-y: scroll;
+
+}
+.scrolling-container::-webkit-scrollbar{
+  display: none;
+}
+// TO do: 1. hide the scroll bar. 2. calculate the correct height of the map container and the dex container
+
+.pokeball-image {
+  background-image: asset-url('pxfuel.png');
 }

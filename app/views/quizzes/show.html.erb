@@ -1,6 +1,6 @@
 <%= render "shared/navbar" %>
 <div class="container result-container">
-  <h1>Results:</h1>
+  <h1>Results: <span><%= @quiz.total %></span>/10</h1>
   <h2 class="result-face">
     <% if @quiz.total >= 7 %> <i class="fa-solid fa-face-laugh-squint"></i>
     <% elsif @quiz.total >= 3 %> <i class="fa-solid fa-face-smile"></i>
@@ -8,10 +8,8 @@
     <% end %>
   </h2>
 
-  <%# <a href="/dashboard"><i class="fa-solid fa-house"></i></a> %>
-
-  <div>
-    <p><span><%= @quiz.total %></span>/10</p>
+  <div class="points">
+    <a href="/dashboard"><i class="fa-solid fa-house"></i></a>
     <p>+ <span><%= @quiz.score %></span> exp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TOTAL: <span><%= @user.point %></span> exp</p>
   </div>
 
