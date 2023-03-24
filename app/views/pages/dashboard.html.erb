@@ -1,49 +1,57 @@
-<div class="big-container">
-  <div class="big-card-left">
-    <h1><%= current_user.username %>'s dashboard</h1>
-    <div class="search-bar">
-      <%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search a pokemon"
-        %>
-        <%= submit_tag "Search", class: "button btn-yellow" %>
-      <% end %>
-    </div>
 
-    <div class="dex-row">
-      <div class="dex-cards">
-        <% @user_pokemons.each do |user_pokemon| %>
-          <div class="dex-card <%=user_pokemon.pokemon.types.first %>">
-            <div class="dex-card-img-container">
-              <img src="<%= user_pokemon.pokemon.image_url %>" alt="<%= user_pokemon.pokemon.name %> image">
-            </div>
-            <div class="dex-card-info-container">
-              <div class="dex-card-title">
-                <h3><%= user_pokemon.pokemon.name.capitalize %></h3>
-                <div class="dex-card-types">
-                <% user_pokemon.pokemon.types.each do |type| %>
-                  <div class="tag <%=type %>">
-                    <%= type.capitalize %>
+<div class="big-container">
+<div class="row w-100">
+  <div class="col-6">
+    <div class="big-card-left">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="badge">
+          <ul>
+            <li>badge </li>
+            <li>badge</li>
+            <li>badge</li>
+          </ul>
+      </div>
+      </div>
+        <div class="search-bar">
+        <h1 class="text-center">Pokédex</h1>
+        <%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search a pokemon"
+          %>
+          <%= submit_tag "Search", class: "button btn-yellow" %>
+        <% end %>
+      </div>
+      <div class="dex-row">
+        <div class="dex-cards">
+          <% @user_pokemons.each do |user_pokemon| %>
+            <div class="dex-card <%=user_pokemon.pokemon.types.first %>">
+              <div class="dex-card-img-container">
+                <img src="<%= user_pokemon.pokemon.image_url %>" alt="<%= user_pokemon.pokemon.name %> image">
+              </div>
+              <div class="dex-card-info-container">
+                <div class="dex-card-title">
+                  <h3><%= user_pokemon.pokemon.name.capitalize %></h3>
+                  <div class="dex-card-types">
+                  <% user_pokemon.pokemon.types.each do |type| %>
+                    <div class="tag <%=type %>">
+                      <%= type.capitalize %>
+                    </div>
+                  <% end %>
                   </div>
-                <% end %>
                 </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-  <div class="big-card" >
+  <div class="col-6">
+    <div class="big-card" >
     <div class="dashboard-row d-flex justify-content-between align-items-center">
       <div class="badge-exp d-flex justify-content-between align-items-center">
-        <ul>
-          <li>badge </li>
-          <li>badge</li>
-          <li>badge</li>
-        </ul>
         <div class="exp"><h3>exp: <%= current_user.point %></h3></div>
         <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow" %>
       </div>
@@ -51,18 +59,17 @@
     </div>
     <div class="big-card-header"></div>
     <div class="big-card-screen">
-      <div class="big-card-screen-inner">
-        <img src="<%= @user_pokemons.first.pokemon.image_url %>" alt="Bulbasaur" class="pokemon-image">
+      <div class="big-card-screen-inner dex-card-pokemon <%=@user_pokemons.first.pokemon.types.first%>">
+        <img src="<%= @user_pokemons.first.pokemon.image_url %>" alt="<%= @user_pokemons.first.pokemon.name %> image" class="pokemon-image">
         <h1 class="pokemon-name"><%= @user_pokemons.first.pokemon.name.capitalize  %></h1>
-      </div>
-
-      <div class="dex-card-types">
+        <div class="dex-card-types">
         <% @user_pokemons.first.pokemon.types.each do |type| %>
           <div class="tag <%=type %>">
             <%= type.capitalize %>
           </div>
         <% end %>
       </div>
+    </div>
     </div>
     <div class="big-card-info">
       <div class="big-card-info-item">Ability:
@@ -85,4 +92,4 @@
   </div>
   </div>
 </div>
- 
+</div>
