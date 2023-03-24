@@ -10,3 +10,38 @@
   <% end %>
  </div>
 </div>
+
+
+<div class="search-bar">
+    <%= form_with url: new_quiz_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search a pokemon's name"
+      %>
+      <%= submit_tag "Search", class: "button btn-yellow" %>
+    <% end %>
+  </div>
+  <div class>
+    <% @pokemons.each do |a| %>
+      <div class="dex-row">
+    <div class="dex-cards">
+        <div class="dex-card <%=a.types.first %>">
+          <div class="dex-card-img-container">
+            <img src="<%= a.image_url %>" alt="<%= a.name %> image">
+          </div>
+          <div class="dex-card-info-container">
+            <div class="dex-card-title">
+              <h3><%= a.name.capitalize %></h3>
+              <% a.types.each do |type| %>
+                <div class="tag <%=type %>">
+                  <%= type.capitalize %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
