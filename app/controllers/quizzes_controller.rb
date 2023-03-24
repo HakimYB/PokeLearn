@@ -35,6 +35,7 @@ class QuizzesController < ApplicationController
       end
     end
     @quiz.score = 10 * @quiz.total
+    @previous_total = @user.point
     @user.point += @quiz.score
     @user.save!
     @pokemon_of_type = Pokemon.all.select do |pokemon|
