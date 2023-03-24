@@ -1,8 +1,3 @@
-.map-container {
-  width: 80%;
-  margin: 0 auto;
-}
-
 .card-category {
   background-size: cover;
   background-position: center;
@@ -21,8 +16,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
-    width: 100%;
-    height: 100%;
   }
 
   // Smallest device
@@ -101,43 +94,4 @@
 .element-icons {
   width: 4rem;
   height: 4rem;
-}
-
-.map {
-  width: 100%;
-  height: auto;
-  background-size: cover;
-}
-
-.sticky-header {
-  position: sticky;
-  top: 0;
-}
-
-.sticky-map {
-  position: sticky;
-  top: 30px;
-}
-
-.pokemon-cards {
-  width: 100%;
-  height: 200vh;
-}
-
-.search-bar {
-
-}
-
-.scrolling-container {
-  height: 80vh;
-  overflow-y: scroll;
-
-}
-.scrolling-container::-webkit-scrollbar{
-  display: none;
-}
-// TO do: 1. hide the scroll bar. 2. calculate the correct height of the map container and the dex container
-
-.pokeball-image {
-  background-image: asset-url('pxfuel.png');
 }
