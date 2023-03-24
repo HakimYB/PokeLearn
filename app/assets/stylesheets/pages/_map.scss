@@ -10,6 +10,8 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+  height: 100%;
 }
 
 .spacing {
@@ -94,4 +96,48 @@
 .element-icons {
   width: 4rem;
   height: 4rem;
+}
+
+.map-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.map {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+}
+
+.sticky-map {
+  position: sticky;
+  top: 30px;
+}
+
+.pokemon-cards {
+  width: 100%;
+  height: 200vh;
+}
+
+.search-bar {
+
+}
+
+.scrolling-container {
+  height: 80vh;
+  overflow-y: scroll;
+
+}
+.scrolling-container::-webkit-scrollbar{
+  display: none;
+}
+// TO do: 1. hide the scroll bar. 2. calculate the correct height of the map container and the dex container
+
+.pokeball-image {
+  background-image: asset-url('pxfuel.png');
 }
