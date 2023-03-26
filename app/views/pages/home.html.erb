@@ -2,13 +2,13 @@
 <%= image_tag "pokelearn_logo.png", class:"home-logo" %>
 
   <div class="home-header">
-    <h1>Learn them all,</h1>
-    <h1>Catch them all!</h1>
+    <h1>Learn'em all,</h1>
+    <h1>Catch'em all!</h1>
   </div>
 
   <% if user_signed_in? %>
-    <a href="/dashboard" class="button btn-yellow home-button">&#9656;Start the adventure</i></a>
+    <a href="/dashboard" class="button btn-blue nes-btn is-primary home-button">&#9656;Start</i></a>
   <% else %>
-    <%= link_to "Sign in", new_user_session_path, class:"button btn-yellow home-button" %>
+    <%= link_to "Sign in", new_user_session_path, class:"button btn-yellow home-button nes-btn is-primary" %>
   <% end %>
 </div>

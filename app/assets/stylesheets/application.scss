@@ -6,6 +6,10 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+// NES.css
+@import "./node_modules/nes.css/css/nes.css";
+//for walking pikachu and ash
+// @import "compass/css3";
 
 // Your CSS partials
 @import "components/index";
