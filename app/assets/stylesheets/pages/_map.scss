@@ -1,19 +1,3 @@
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 1500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 100%;
-  height: 100%;
-}
-
 .spacing {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -59,85 +43,80 @@
   display: none;
 }
 
-.banner {
-  background-size: cover;
-  background-position: center;
-  padding: 500px 0;
-}
-
 .fire-pic {
-  height: 200px;
+  // height: 200px;
   width: 200px;
   margin-left: 10px;
   margin-bottom: 5px;
 }
 
 .grass-pic {
-  height: 200px;
+  // height: 200px;
   width: 200px;
   margin-left: 10px;
   margin-bottom: 5px;
 }
 
 .water-pic {
-  height: 200px;
+  // height: 200px;
   width: 200px;
   margin-left: 10px;
   margin-bottom: 5px;
 }
 
 .bug-pic {
-  height: 200px;
+  // height: 200px;
   width: 200px;
   margin-left: 10px;
   margin-bottom: 5px;
 }
 
 .element-icons {
-  width: 4rem;
-  height: 4rem;
-}
-
-.map-container {
-  width: 80%;
-  margin: 0 auto;
+  width: 3rem;
+  height: 3rem;
 }
 
 .map {
   width: 100%;
-  height: auto;
+  height: 100%;
   background-size: cover;
-}
-
-.sticky-header {
-  position: sticky;
-  top: 0;
-}
-
-.sticky-map {
-  position: sticky;
-  top: 30px;
 }
 
 .pokemon-cards {
   width: 100%;
-  height: 200vh;
-}
-
-.search-bar {
-
+  height: 680px;
 }
 
 .scrolling-container {
-  height: 80vh;
+  height: 600px;
   overflow-y: scroll;
-
+  background-color: rgba(0, 0, 0, 0.504);
+  padding: 10px;
 }
+// hide the scroll bar
 .scrolling-container::-webkit-scrollbar{
   display: none;
 }
-// TO do: 1. hide the scroll bar. 2. calculate the correct height of the map container and the dex container
+// calculate the correct height of the map container and the dex container
 
 .pokeball-image {
   background-image: asset-url('pxfuel.png');
+}
+
+.search-bar-map {
+  width: 500px !important;
+  height: 50px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.map-body {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('wallpaperflare.com_wallpaper.png');
+  background-size: cover;
+  padding: 15px;
+}
+
+.map-title {
+  font-family: 'Press Start 2P', cursive;
 }

@@ -1,37 +1,34 @@
 <%= render "shared/navbar" %>
-<div class="text-center heading">
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-6">
-      <%# <h3 class="sticky-header text-center">Click</h3> %>
-      <div class = "map" >
-        <h2>Choose an element</h2>
-        <div class = "spacing">
-          <% @elements.each do |e| %>
-            <%= simple_form_for @quiz do |f| %>
-              <%= f.input :element, input_html: { class: 'hide', value: "#{e}"}, label: false %>
-              <%= image_submit_tag "#{e}.png", class: "element-icons #{e}-pic" %>
+<div class="map-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class = "map" >
+          <h2 class="map-title">Choose an element</h2>
+          <div class = "spacing">
+            <% @elements.each do |e| %>
+              <%= simple_form_for @quiz do |f| %>
+                <%= f.input :element, input_html: { class: 'hide', value: "#{e}"}, label: false %>
+                <%= image_submit_tag "#{e}.png", class: "element-icons #{e}-pic" %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="pokemon-cards">
-        <div class="search-bar">
-          <%= form_with url: new_quiz_path, method: :get, class: "d-flex" do %>
-            <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Search a pokemon's name"
-            %>
-            <%= submit_tag "Search", class: "button btn-yellow" %>
-          <% end %>
-        </div>
+      <div class="col-12 col-md-6">
+        <div class="pokemon-cards">
+          <div class="nes-field is-inlinev d-flex justify-content-center ">
+            <%= form_with url: new_quiz_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                  params[:query],
+                  class: "nes-input search-bar-map",
+                  placeholder: "Enter a pokémon's name"
+              %>
+              <%= submit_tag "Search", class: "button btn-yellow nes-btn is-warning" %>
+            <% end %>
+          </div>
 
-        <div class="dex-row scrolling-container">
-          <div class="dex-cards">
+          <div class="dex-cards scrolling-container">
             <% @pokemons.each do |pokemon| %>
               <div class="dex-card <%=pokemon.types.first %>">
                 <div class="dex-card-img-container">
@@ -41,11 +38,11 @@
                   <div class="dex-card-title">
                     <h3><%= pokemon.name.capitalize %></h3>
                     <div class="dex-card-types">
-                    <% pokemon.types.each do |type| %>
-                      <div class="tag <%=type %>">
-                        <%= type.capitalize %>
-                      </div>
-                    <% end %>
+                      <% pokemon.types.each do |type| %>
+                        <div class="tag <%=type %>">
+                          <%= type.capitalize %>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>
@@ -53,6 +50,7 @@
             <% end %>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </div>

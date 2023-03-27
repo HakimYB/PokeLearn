@@ -1,95 +1,93 @@
 <%= render "shared/navbar" %>
 <div class="big-container">
-<div class="row w-100">
-  <div class="col-6">
-    <div class="big-card-left">
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="badge">
-          <%# <ul>
-            <li>badge </li>
-            <li>badge</li>
-            <li>badge</li>
-          </ul> %>
-      </div>
-      </div>
-        <div class="search-bar">
-        <h1 class="text-center">Pokédex</h1>
-        <%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Search a pokemon"
-          %>
-          <%= submit_tag "Search", class: "button btn-yellow" %>
-        <% end %>
-      </div>
-      <div class="dex-row">
-        <div class="dex-cards">
-          <% @user_pokemons.each do |user_pokemon| %>
-            <div class="dex-card <%=user_pokemon.pokemon.types.first %>">
-              <div class="dex-card-img-container">
-                <img src="<%= user_pokemon.pokemon.image_url %>" alt="<%= user_pokemon.pokemon.name %> image">
-              </div>
-              <div class="dex-card-info-container">
-                <div class="dex-card-title">
-                  <h3><%= user_pokemon.pokemon.name.capitalize %></h3>
-                  <div class="dex-card-types">
-                  <% user_pokemon.pokemon.types.each do |type| %>
-                    <div class="tag <%=type %>">
-                      <%= type.capitalize %>
+  <div class="row w-100">
+    <div class="col-6">
+      <div class="big-card-left">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="badge">
+            <%# <ul>
+              <li>badge </li>
+              <li>badge</li>
+              <li>badge</li>
+            </ul> %>
+        </div>
+        </div>
+          <div class="search-bar">
+          <h1 class="text-center">Pokédex</h1>
+          <%= form_with url: dashboard_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev" do %>
+            <%= text_field_tag :query,
+                params[:query],
+                class: "nes-input search-bar-map",
+                placeholder: "Search a pokémon"
+            %>
+            <%= submit_tag "Search", class: "button btn-yellow nes-btn is-warning" %>
+          <% end %>
+        </div>
+        <div class="dex-row">
+          <div class="dex-cards">
+            <% @user_pokemons.each do |user_pokemon| %>
+              <div class="dex-card <%=user_pokemon.pokemon.types.first %>">
+                <div class="dex-card-img-container">
+                  <img src="<%= user_pokemon.pokemon.image_url %>" alt="<%= user_pokemon.pokemon.name %> image">
+                </div>
+                <div class="dex-card-info-container">
+                  <div class="dex-card-title">
+                    <h3><%= user_pokemon.pokemon.name.capitalize %></h3>
+                    <div class="dex-card-types">
+                    <% user_pokemon.pokemon.types.each do |type| %>
+                      <div class="tag <%=type %>">
+                        <%= type.capitalize %>
+                      </div>
+                    <% end %>
                     </div>
-                  <% end %>
                   </div>
                 </div>
               </div>
-            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="big-card" >
+        <div class="dashboard-row d-flex justify-content-between align-items-center">
+          <div class="badge-exp d-flex justify-content-between align-items-center">
+            <div class="exp"><h3>Exp: <%= current_user.point %></h3></div>
+            <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning" %>
+          </div>
+          <%# <h2><%= @user_pokemons.length %>
+        </div>
+        <div class="big-card-screen">
+          <div class="big-card-screen-inner dex-card-pokemon <%=@user_pokemons.first.pokemon.types.first%>">
+            <img src="<%= @user_pokemons.first.pokemon.image_url %>" alt="<%= @user_pokemons.first.pokemon.name %> image" class="pokemon-image">
+            <h1 class="pokemon-name"><%= @user_pokemons.first.pokemon.name.capitalize  %></h1>
+            <div class="dex-card-types">
+              <% @user_pokemons.first.pokemon.types.each do |type| %>
+                <div class="tag <%=type %>">
+                  <%= type.capitalize %>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="big-card-info">
+        <div class="big-card-info-item">Ability:
+          <% @pokemon["abilities"].each do |ability| %>
+          <p><%= ability["ability"]["name"] %></p>
+          <% end %>
+        </div>
+        <div class="big-card-info-item">
+          <div class="big-card-info-item">Description: <%= @description["flavor_text_entries"][0]["flavor_text"] %></div>
+          <div class="big-card-info-item">Height: <%= @pokemon["height"] %></div>
+          <div class="big-card-info-item">Weight: <%= @pokemon["weight"] %></div>
+          <div class="big-card-info-item">Species: <%= @pokemon["species"]["name"] %></div>
+          <% if @current_pokemon.evolves_to.nil? %>
+            <p>This Pokémon does not evolve.</p>
+          <% else %>
+            <p><%= @current_pokemon.evolves_to %></p>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-6">
-    <div class="big-card" >
-    <div class="dashboard-row d-flex justify-content-between align-items-center">
-      <div class="badge-exp d-flex justify-content-between align-items-center">
-        <div class="exp"><h3>Exp: <%= current_user.point %></h3></div>
-        <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow" %>
-      </div>
-      <%# <h2><%= @user_pokemons.length %>
-    </div>
-    <div class="big-card-header"></div>
-    <div class="big-card-screen">
-      <div class="big-card-screen-inner dex-card-pokemon <%=@user_pokemons.first.pokemon.types.first%>">
-        <img src="<%= @user_pokemons.first.pokemon.image_url %>" alt="<%= @user_pokemons.first.pokemon.name %> image" class="pokemon-image">
-        <h1 class="pokemon-name"><%= @user_pokemons.first.pokemon.name.capitalize  %></h1>
-        <div class="dex-card-types">
-        <% @user_pokemons.first.pokemon.types.each do |type| %>
-          <div class="tag <%=type %>">
-            <%= type.capitalize %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    </div>
-    <div class="big-card-info">
-      <div class="big-card-info-item">Ability:
-        <% @pokemon["abilities"].each do |ability| %>
-         <p><%= ability["ability"]["name"] %></p>
-        <% end %>
-      </div>
-      <div class="big-card-info-item">Description: <%= @description["flavor_text_entries"][0]["flavor_text"] %></div>
-      <div class="big-card-info-item">Height: <%= @pokemon["height"] %></div>
-      <div class="big-card-info-item">Weight: <%= @pokemon["weight"] %></div>
-      <div class="big-card-info-item">Species: <%= @pokemon["species"]["name"] %></div>
-      <div class="big-card-info-item">
-        <% if @current_pokemon.evolves_to.nil? %>
-          <p>This Pokémon does not evolve.</p>
-        <% else %>
-          <p><%= @current_pokemon.evolves_to %></p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
 </div>

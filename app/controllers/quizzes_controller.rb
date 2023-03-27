@@ -9,7 +9,7 @@ class QuizzesController < ApplicationController
     end
     @elements = ["bug", "ground", "normal", "water", "fighting", "fire",
       "psychic", "grass", "rock", "electric", "poison", "ghost", "ice",
-      "dragon", "fairy", "poison", "rock"]
+      "dragon", "fairy", "rock"]
   end
 
   def create
