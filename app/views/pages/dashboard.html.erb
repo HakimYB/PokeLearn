@@ -1,19 +1,12 @@
 <%= render "shared/navbar" %>
-<div class="big-container">
+<div class="big-container dashboard-bkg">
   <div class="row w-100">
     <div class="col-6">
       <div class="big-card-left">
       <div class="d-flex justify-content-between align-items-center">
-        <div class="badge">
-            <%# <ul>
-              <li>badge </li>
-              <li>badge</li>
-              <li>badge</li>
-            </ul> %>
-        </div>
         </div>
           <div class="search-bar">
-          <h1 class="text-center">Pokédex</h1>
+          <h2 class="text-center">Pokédex</h2>
           <%= form_with url: dashboard_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev" do %>
             <%= text_field_tag :query,
                 params[:query],
@@ -24,7 +17,7 @@
           <% end %>
         </div>
         <div class="dex-row">
-          <div class="dex-cards">
+          <div class="dex-cards dashboard-scrolling-container">
             <% @user_pokemons.each do |user_pokemon| %>
               <div class="dex-card <%=user_pokemon.pokemon.types.first %>">
                 <div class="dex-card-img-container">
@@ -52,10 +45,10 @@
       <div class="big-card" >
         <div class="dashboard-row d-flex justify-content-between align-items-center">
           <div class="badge-exp d-flex justify-content-between align-items-center">
-            <div class="exp"><h3>Exp: <%= current_user.point %></h3></div>
+            <h2> You have <%= @user_pokemons.length %> pokemons </h2>
+            <div class="exp"><h2>Exp: <%= current_user.point %></h2></div>
             <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning" %>
           </div>
-          <%# <h2><%= @user_pokemons.length %>
         </div>
         <div class="big-card-screen">
           <div class="big-card-screen-inner dex-card-pokemon <%=@user_pokemons.first.pokemon.types.first%>">
