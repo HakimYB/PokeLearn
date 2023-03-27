@@ -42,6 +42,7 @@
       </div>
     </div>
     <div class="col-6" data-controller="big-card">
+      <% if @user_pokemons.exists? %>
       <div class="big-card" >
         <div class="dashboard-row d-flex justify-content-between align-items-center">
           <div class="badge-exp d-flex justify-content-between align-items-center">
@@ -81,6 +82,7 @@
           <% end %>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -110,6 +112,7 @@
 
 
 
-
+<% if @user_pokemons.exists? %>
 <%= button_to "Evolve", user_pokemon_evolve_path(@current_user_pokemon), :id => "",
       :class => "button nes-input", :method => :post %>
+  <% end %>
