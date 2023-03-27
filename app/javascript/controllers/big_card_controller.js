@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="big-card"
 export default class extends Controller {
-  static targets = ["image", "name", "types", "details"]
+  static targets = ["image", "name", "types", "details", "card"]
   connect() {
     console.log("hey");
     console.log(this.element)
@@ -14,7 +14,14 @@ export default class extends Controller {
 
   showBigCard(event) {
     event.preventDefault()
-    this.imageTarget.src = "<%= this.eventTarget.image_url"
+    console.log("helloooooo")
+    // console.log(event.currentTarget)
+    console.log(this.imageTarget)
+    fetch(event.currentTarget.href, {headers: {"Accept": "text/plain"}})
+    .then(response => response.text())
+    .then((data) => {
+      this.cardTarget.outerHTML = data
+    })
   }
 
 }
