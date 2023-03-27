@@ -32,6 +32,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  a {
+    text-decoration: none;
+  }
 }
 
 .dashboard-scrolling-container {
@@ -232,7 +235,7 @@
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 /* Change background color of buttons on hover */
@@ -249,13 +252,15 @@
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+  // border: 1px solid #ccc;
+  // border-top: none;
+  background-color: #ccc;
 }
 
 .big-card-detail {
   position: absolute;
   top: 60%;
+  width: 100%;
   p {
     font-family: $nes-font;
     font-size: 0.8rem;
@@ -276,4 +281,8 @@
 
 .first-row p {
   font-family: $nes-font;
+}
+
+.dex-card-title {
+  color: white;
 }
