@@ -10,7 +10,7 @@ class QuizQuestionsController < ApplicationController
     @user_answer = @quiz_question.user_answer
 
     check = @quiz_question.quiz.quiz_questions.select { |question| question.user_answer.nil? }
-    @number = 10 - check.length + 1
+    @number = 5 - check.length + 1
   end
 
   def edit

@@ -16,7 +16,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
     @quiz.user = current_user
     if @quiz.save
-      10.times do
+      5.times do
         QuizQuestion.create(quiz: @quiz, question: Question.all.sample)
       end
       redirect_to quiz_question_path(@quiz.quiz_questions.first)
@@ -34,7 +34,7 @@ class QuizzesController < ApplicationController
         @quiz.total += 1
       end
     end
-    @quiz.score = 10 * @quiz.total
+    @quiz.score = 5 * @quiz.total
     @previous_total = @user.point
     @user.point += @quiz.score
     @user.save!
@@ -42,9 +42,9 @@ class QuizzesController < ApplicationController
      pokemon.types.include?(@quiz.element)
     end
 
-    if @quiz.total == 10
+    if @quiz.total == 5
       @new_pokemons = @pokemon_of_type.sample(3)
-    elsif @quiz.total >= 5
+    elsif @quiz.total >= 2
       @new_pokemons = @pokemon_of_type.sample(2)
     else
       @new_pokemons = @pokemon_of_type.sample(1)
