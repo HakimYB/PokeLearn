@@ -7,6 +7,10 @@ class PagesController < ApplicationController
 
   def home
     @user = User.new
+    @user = Pokemon.all.sample(3)
+    @user.each do |p|
+      UserPokemon.create(user: current_user, pokemon: p)
+    end
   end
 
   def dashboard
@@ -15,11 +19,8 @@ class PagesController < ApplicationController
     else
       @user_pokemons = UserPokemon.where(user: current_user)
     end
-    # @user_pokemons = Pokemon.all.sample(3)
-    # @user_pokemons.each do |p|
-    #   UserPokemon.create(user: current_user, pokemon: p)
-    # end
     @current_pokemon = @user_pokemons.first.pokemon
+    @current_user_pokemon = @user_pokemons.first
     name = @current_pokemon.name
     url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
     @pokemon = JSON.parse(URI.open(url).read)

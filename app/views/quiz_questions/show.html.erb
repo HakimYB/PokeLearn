@@ -8,9 +8,10 @@
     </div>
   </div>
 
+
 <div class="background-container">
   <div class="quiz-container">
-    <p class="quiz-number">Question number <%= @number %>/10</p>
+    <p class="quiz-number">Question number <%= @number %>/5</p>
     <%= simple_form_for @quiz_question do |f| %>
       <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle %>
       <div class="quiz-question">
