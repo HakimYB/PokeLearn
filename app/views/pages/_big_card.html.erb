@@ -1,0 +1,74 @@
+<div class="big-card"  >
+  <div class="dashboard-row d-flex justify-content-between align-items-center">
+    <div class="badge-exp d-flex justify-content-between align-items-center">
+
+    </div>
+  </div>
+  <div class="big-card-screen">
+    <div class="big-card-screen-inner dex-card-pokemon dex-card <%=current_pokemon.types.first %>" >
+      <img src="<%= current_pokemon.image_url %>" alt="<%= current_pokemon.name %> image" id="pokemon-image">
+      <div class="big-card-detail">
+        <div class="name-type d-flex justify-content-between">
+          <h1 class="pokemon-name" ><%= current_pokemon.name.capitalize %></h1>
+          <div class="dex-card-types">
+            <% current_pokemon.types.each do |type| %>
+              <div class="tag <%=type %>">
+                <%= type.capitalize %>
+              </div>
+            <% end %>
+          </div>
+          <%= button_to "Evolve", user_pokemon_evolve_path(@current_user_pokemon), :id => "", :class => "button is-primary btn-blue nes-btn", :method => :post %>
+        </div>
+        <p><%= description["flavor_text_entries"][0]["flavor_text"] %></p>
+
+        <div class="big-card-info tab">
+          <button class="tablinks" onclick="openCity(event, 'Ability')">Ability</button>
+          <button class="tablinks" onclick="openCity(event, 'HeightWeight')">Height & Weight</button>
+          <button class="tablinks" onclick="openCity(event, 'Species')">Species</button>
+          <button class="tablinks" onclick="openCity(event, 'Evolution')">Evolution</button>
+        </div>
+
+        <div id="Ability" class="tabcontent">
+          <% pokemon["abilities"].each do |ability| %>
+            <p><%= ability["ability"]["name"] %></p>
+            <% end %>
+        </div>
+
+        <div id="HeightWeight" class="tabcontent">
+          <p>Height: <%= pokemon["height"] %></p>
+          <p>Weight: <%= pokemon["weight"] %></p>
+        </div>
+
+        <div id="Species" class="tabcontent">
+          <p><%= pokemon["species"]["name"] %></p>
+        </div>
+
+        <div id="Evolution" class="tabcontent">
+          <% if current_pokemon.evolves_to.nil? %>
+            <p>This Pokémon does not evolve.</p>
+          <% else %>
+            <p>This Pokémon evolves to <%= current_pokemon.evolves_to.capitalize %>.</p>
+          <% end %>
+        </div>
+
+        <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        </script>
+
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

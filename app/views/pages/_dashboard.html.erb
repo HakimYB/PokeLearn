@@ -1,0 +1,56 @@
+<div class="first-row d-flex justify-content-between align-items-center">
+  <p> You have <%= @user_pokemons.length %> pokemons </p>
+  <div><p>Exp: <%= current_user.point %></p></div>
+  <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning" %>
+</div>
+<div class="big-container dashboard-bkg">
+  <div class="row w-100"  data-controller="big-card">
+    <div class="col-6">
+      <div class="big-card-left">
+      <div class="d-flex justify-content-between align-items-center">
+        </div>
+          <div class="search-bar">
+          <%# <h2 class="text-center">Pokédex</h2> %>
+          <%= form_with url: dashboard_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev dashboard-search-bar" do %>
+            <%= text_field_tag :query,
+                params[:query],
+                class: "nes-input search-bar-map",
+                placeholder: "Search a pokémon"
+            %>
+            <%= submit_tag "Search", class: "button btn-yellow nes-btn is-warning" %>
+          <% end %>
+        </div>
+        <div class="dex-row">
+          <div class="dex-cards dashboard-scrolling-container">
+            <% @user_pokemons.each do |user_pokemon| %>
+              <%= link_to dashboard_show_path(user_pokemon.pokemon),data:{action:"click->big-card#showBigCard"} do %>
+                <div class="dex-card <%=user_pokemon.pokemon.types.first %>">
+                  <div class="dex-card-img-container">
+                    <img src="<%= user_pokemon.pokemon.image_url %>" alt="<%= user_pokemon.pokemon.name %> image">
+                  </div>
+                  <div class="dex-card-info-container">
+                    <div class="dex-card-title">
+                      <h3><%= user_pokemon.pokemon.name.capitalize %></h3>
+                      <div class="dex-card-types">
+                      <% user_pokemon.pokemon.types.each do |type| %>
+                        <div class="tag <%=type %>">
+                          <%= type.capitalize %>
+                        </div>
+                      <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+    <% if @user_pokemons.exists? %>
+      <%= render "big_card", current_pokemon:@current_pokemon, pokemon:@pokemon, description:@description %>
+    <% end %>
+    </div>
+  </div>
+</div>
