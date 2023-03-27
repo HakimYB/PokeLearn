@@ -16,8 +16,8 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
     @quiz.user = current_user
     if @quiz.save
-      5.times do
-        QuizQuestion.create(quiz: @quiz, question: Question.all.sample)
+      Question.order(Arel.sql('RANDOM()')).first(5).each do |question|
+        QuizQuestion.create(quiz: @quiz, question: question)
       end
       redirect_to quiz_question_path(@quiz.quiz_questions.first)
     else
