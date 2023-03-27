@@ -7,7 +7,12 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 // NES.css
+<<<<<<< HEAD
 @import "nes.css/css/nes.css";
+=======
+// @import "./node_modules/nes.css/css/nes.css";
+@import "nes.css/css/nes.min.css";
+>>>>>>> master
 //for walking pikachu and ash
 // @import "compass/css3";
 

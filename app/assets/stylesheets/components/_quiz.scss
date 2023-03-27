@@ -59,6 +59,20 @@ label.box.circle{
 
 .heading{
   margin-top: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0 auto;
+  text-align: center;
+  width: min-content;
+  white-space: nowrap;
+}
+.background2{
+
+}
+.heading h1 {
+  font-size: 56px;
+  color: white;
 }
 
 .btn.btn-primary{
@@ -147,4 +161,105 @@ input[type="radio" i] {
   60% { top: 0 }
   80% { top: -20px }
   100% { top: 0 }
+}
+#container {
+  background: asset-url("pokemon-gym.png");
+  background-size: cover;
+  height: 100%;
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+
+.quiz-container {
+  width: 70%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-number {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.quiz-question {
+  font-size: 25px;
+}
+
+.category-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+}
+
+.category-item {
+  position: relative;
+  padding-left: 30px;
+}
+
+.category-selector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.answer-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.answer-option {
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: #0075BE;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.answer-option:hover {
+  background-color: #005FA3;
+}
+
+.answer-letter {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.answer-text {
+  flex-grow: 1;
 }

@@ -1,21 +1,39 @@
-<%= render "shared/navbar" %>
-<div class="text-center heading">
-  <h1>Quiz time!</h1>
-</div>
+<body>
+<div id="container">
+  <%= render "shared/navbar" %>
 
-<div class="quiz-container">
-  <p>Question number <%= @number%>/10</p>
-  <%= simple_form_for @quiz_question do |f| %>
-    <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle%>
-    <%= f.input :user_answer, as: :radio_buttons, collection: [[randomize[0], randomize[0]], [randomize[1], randomize[1]], [randomize[2], randomize[2]], [randomize[3], randomize[3]]], :label => @problem %>
-    <%= f.submit %>
-  <% end %>
-</div>
-<div class="center-on-page">
-
-  <div class="pokeball">
-    <div class="pokeball__button"></div>
+  <div class="text-center heading">
+   <div id="background2">
+    <h1>Quiz time!</h1>
+    </div>
   </div>
 
+
+<div class="background-container">
+  <div class="quiz-container">
+    <p class="quiz-number">Question number <%= @number %>/5</p>
+    <%= simple_form_for @quiz_question do |f| %>
+      <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle %>
+      <div class="quiz-question">
+        <%= f.label @problem, class: "col-form-label pt-0" %>
+        <div class="answer-options">
+          <% randomize.each_with_index do |answer, index| %>
+            <button class="answer-option" type="submit" name="quiz_question[user_answer]" value="<%= answer %>">
+              <%= answer %>
+            </button>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-<%= render "shared/pika_ash" %>
+
+
+
+  <div class="center-on-page">
+    <div class="pokeball">
+      <div class="pokeball__button"></div>
+    </div>
+  </div>
+</div>
+</body>
