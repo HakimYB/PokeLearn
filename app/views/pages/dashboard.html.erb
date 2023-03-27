@@ -7,7 +7,7 @@
         </div>
           <div class="search-bar">
           <h2 class="text-center">Pokédex</h2>
-          <%= form_with url: dashboard_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev" do %>
+          <%= form_with url: dashboard_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev dashboard-search-bar" do %>
             <%= text_field_tag :query,
                 params[:query],
                 class: "nes-input search-bar-map",
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-6" data-controller="big-card">
       <div class="big-card" >
         <div class="dashboard-row d-flex justify-content-between align-items-center">
           <div class="badge-exp d-flex justify-content-between align-items-center">

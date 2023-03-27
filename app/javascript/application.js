@@ -3,4 +3,4 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 
-import "nes.css/css/nes.min.css";
+// import "nes.css/css/nes.min.css";
