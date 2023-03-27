@@ -16,11 +16,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_110905) do
 
   create_table "pokemons", force: :cascade do |t|
     t.string "name"
+    t.string "pokemon_type"
     t.text "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "evolves_to"
-    t.string "pokemon_type"
   end
 
   create_table "questions", force: :cascade do |t|
