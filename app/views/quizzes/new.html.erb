@@ -9,7 +9,7 @@
             <% @elements.each do |e| %>
               <%= simple_form_for @quiz do |f| %>
                 <%= f.input :element, input_html: { class: 'hide', value: "#{e}"}, label: false %>
-                <%= image_submit_tag "#{e}.png", class: "element-icons #{e}-pic" %>
+                <%= image_submit_tag "#{e}.png", class: "element-icons #{e}-pic",  data: { controller: "tooltip", bs_toggle: "tooltip", bs_placement: "top" }, title: "#{e}"%>
               <% end %>
             <% end %>
           </div>
