@@ -9,7 +9,7 @@ class QuizzesController < ApplicationController
     end
     @elements = ["bug", "ground", "normal", "water", "fighting", "fire",
       "psychic", "grass", "rock", "electric", "poison", "ghost", "ice",
-      "dragon", "fairy", "rock"]
+      "dragon", "fairy"]
   end
 
   def create
@@ -34,7 +34,7 @@ class QuizzesController < ApplicationController
         @quiz.total += 1
       end
     end
-    @quiz.score = 5 * @quiz.total
+    @quiz.score = 10 * @quiz.total
     @previous_total = @user.point
     @user.point += @quiz.score
     @user.save!
@@ -54,13 +54,8 @@ class QuizzesController < ApplicationController
     end
 
     @completed = Quiz.find(params[:id])
-    # @incorrect = []
-    # @correct = []
     @wrong = @completed.quiz_questions.select do |f|
       f.user_answer != f.question.correct_answer
-      # @incorrect << f.quiz_questions
-      # @incorrect << f.question
-      # @correct << f.question.correct_answer
     end
   end
 
