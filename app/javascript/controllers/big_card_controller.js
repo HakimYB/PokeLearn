@@ -16,4 +16,5 @@ export default class extends Controller {
     event.preventDefault()
     this.imageTarget.src = "<%= this.eventTarget.image_url"
   }
+
 }
