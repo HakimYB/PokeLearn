@@ -19,13 +19,17 @@ class PagesController < ApplicationController
     else
       @user_pokemons = UserPokemon.where(user: current_user)
     end
-    @current_pokemon = @user_pokemons.first.pokemon
-    @current_user_pokemon = @user_pokemons.first
-    name = @current_pokemon.name
-    url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
-    @pokemon = JSON.parse(URI.open(url).read)
-    species_url = "https://pokeapi.co/api/v2/pokemon-species/#{@current_pokemon.id}/"
-    @description = JSON.parse(URI.open(species_url).read)
+
+    if @user_pokemons.exists?
+
+      @current_pokemon = @user_pokemons.first.pokemon
+      @current_user_pokemon = @user_pokemons.first
+      name = @current_pokemon.name
+      url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
+      @pokemon = JSON.parse(URI.open(url).read)
+      species_url = "https://pokeapi.co/api/v2/pokemon-species/#{@current_pokemon.id}/"
+      @description = JSON.parse(URI.open(species_url).read)
+    end
   end
 
   def dashboard_show

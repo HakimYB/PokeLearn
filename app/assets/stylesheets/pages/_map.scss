@@ -43,37 +43,9 @@
   display: none;
 }
 
-.fire-pic {
-  // height: 200px;
-  width: 200px;
-  margin-left: 10px;
-  margin-bottom: 5px;
-}
-
-.grass-pic {
-  // height: 200px;
-  width: 200px;
-  margin-left: 10px;
-  margin-bottom: 5px;
-}
-
-.water-pic {
-  // height: 200px;
-  width: 200px;
-  margin-left: 10px;
-  margin-bottom: 5px;
-}
-
-.bug-pic {
-  // height: 200px;
-  width: 200px;
-  margin-left: 10px;
-  margin-bottom: 5px;
-}
-
 .element-icons {
-  width: 3rem;
-  height: 3rem;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 
 .map {
@@ -92,6 +64,7 @@
   overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.504);
   padding: 10px;
+  margin-right: 200px;
 }
 // hide the scroll bar
 .scrolling-container::-webkit-scrollbar{

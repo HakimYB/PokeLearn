@@ -48,7 +48,9 @@
       </div>
     </div>
     <div class="col-6">
+    <% if @user_pokemons.exists? %>
       <%= render "big_card", current_pokemon:@current_pokemon, pokemon:@pokemon, description:@description %>
+    <% end %>
     </div>
   </div>
 </div>
