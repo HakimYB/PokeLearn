@@ -3,6 +3,7 @@
   margin: 20px auto;
   margin-bottom: 1px !important;
   text-align: center;
+}
   span {
     color: $green;
     font-weight: 600;
@@ -12,7 +13,6 @@
   .fa-house {
     font-size: 30px;
   }
-}
 
 .result-face {
   font-size: 2rem;
@@ -27,4 +27,55 @@
 .fa-house {
   margin-bottom: 10px;
 }
+.text-center {
+  margin-top: 20px;
+}
 
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.left-container,
+.right-container {
+  width: 100%;
+  max-width: calc(50% - 15px); // Adjust the value 15px to control the space between the containers
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .left-container,
+  .right-container {
+    max-width: 100%;
+  }
+}
+.question-answer-block {
+  margin-bottom: 20px;
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.answer-btn {
+  cursor: default;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: left;
+  width: fit-content;
+}
+
+.correct {
+  background-color: #E6F8E0;
+  color: #4DAD5B;
+}
+
+.wrong {
+  background-color: #FEE3E3;
+  color: #FB1B1B;
+}

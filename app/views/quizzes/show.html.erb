@@ -9,6 +9,8 @@
     </a>
   </div>
 
+<div class="container main-container">
+  <div class="left-container">
 <div class="container result-container">
   <h1>Results: <span><%= @quiz.total %></span>/5</h1>
   <h2 class="result-face">
@@ -89,24 +91,25 @@
       </div>
   </div>
 </div>
+</div>
 
-<div class="container">
-  <div class="heading text-center">
-    <h2>Incorrect answers:</h2>
+<div class="right-container">
+  <div class="container">
+    <div id="incorrect text-center">
+      <h2>Incorrect answers:</h2>
+    </div>
+    <% @wrong.each do |f|%>
+      <div class="question-answer-block">
+        <h3 class="question">Question: <%= f.question.problem %></h3>
+        <div class="answer-section">
+          <button class="answer-btn correct">
+            The correct answer: <i class="fa-regular fa-circle-check"></i> <%= f.question.correct_answer %>
+          </button>
+          <button class="answer-btn wrong">
+            Your Answer: <i class="fa-regular fa-circle-xmark"></i> <%= f.user_answer %>
+          </button>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <% @wrong.each do |f|%>
-  <ul>
-    <li>
-    <div class="question">
-    Question: <p><%= f.question.problem %></p>
-    </div>
-    <div class="correct">
-      <p><i class="fa-regular fa-circle-check"></i> <%= f.question.correct_answer %></p>
-    </div>
-    <div class="wrong">
-      Your Answer: <p><i class="fa-regular fa-circle-xmark"></i> <%= f.user_answer %></p>
-    </div>
-      </li>
-  </ul>
-  <% end %>
 </div>
