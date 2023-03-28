@@ -7,7 +7,10 @@
   <div class="big-card-screen">
     <div class="big-card-screen-inner dex-card-pokemon dex-card <%=current_pokemon.types.first %>">
       <img src="<%= current_pokemon.image_url %>" alt="<%= current_pokemon.name %> image" id="pokemon-image">
+      <% if current_pokemon.evolves_to.nil?%>
+      <% else %>
        <%= button_to "Evolve", user_pokemon_evolve_path(@current_user_pokemon), :id => "", :class => "button is-primary btn-blue nes-btn", :method => :post %>
+       <% end %>
       <div class="big-card-detail">
         <div class="name-type d-flex justify-content-between">
           <h1 class="pokemon-name" ><%= current_pokemon.name.capitalize %></h1>
