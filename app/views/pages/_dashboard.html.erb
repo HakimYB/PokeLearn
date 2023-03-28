@@ -8,7 +8,7 @@
   <div class="row w-100"  data-controller="big-card">
     <div class="col-12 col-md-7">
       <div class="big-card-left">
-        <div class="search-bar">
+        <div class="search-bar mt-2">
           <%# <h2 class="text-center">Pokédex</h2> %>
           <%= form_with url: dashboard_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev dashboard-search-bar" do %>
             <%= text_field_tag :query,
