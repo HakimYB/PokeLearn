@@ -1,14 +1,16 @@
-  <div class="text-center">
-    <a
-      href="/dashboard"
-      data-controller="confetti"
-      data-action="click->confetti#spray"
-      data-animation-value="school-pride"
-      data-duration-value="10"
-      ><i class="fa-solid fa-house"></i>
-    </a>
-  </div>
+<div class="text-center">
+  <a
+    href="/dashboard"
+    data-controller="confetti"
+    data-action="click->confetti#spray"
+    data-animation-value="school-pride"
+    data-duration-value="10"
+  >
+    <img src="<%= asset_path('Poke_Ball_Icon.png') %>" alt="Poke Ball Icon" style="width: 70px; height: 70px;" />
+  </a>
+</div>
 
+<div class="superclass">
 <div class="container main-container">
   <div class="left-container">
 <div class="container result-container">
@@ -68,48 +70,143 @@
 
   <div class="new-pokemon">
     <h2>You caught:</h2>
-    <div class="dex-cards">
-        <% @new_pokemons.each do |pokemon| %>
-          <div class="dex-card <%=pokemon.types.first %>">
-            <div class="dex-card-img-container">
-              <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
-            </div>
-            <div class="dex-card-info-container">
-              <div class="dex-card-title">
-                <h3><%= pokemon.name.capitalize %></h3>
-                <div class="dex-card-types">
-                <% pokemon.types.each do |type| %>
-                  <div class="tag <%=type %>">
-                    <%= type.capitalize %>
+      <div class="dex-cards">
+        <div class="dex-card-container">
+          <% @new_pokemons.each do |pokemon| %>
+            <div class="dex-card <%=pokemon.types.first %>">
+              <div class="dex-card-img-container">
+                <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
+              </div>
+              <div class="dex-card-info-container">
+                <div class="dex-card-title">
+                  <h3><%= pokemon.name.capitalize %></h3>
+                  <div class="dex-card-types">
+                    <% pokemon.types.each do |type| %>
+                      <div class="tag <%=type %>">
+                        <%= type.capitalize %>
+                      </div>
+                    <% end %>
                   </div>
-                <% end %>
                 </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 </div>
 
 <div class="right-container">
-  <div class="container">
-    <div id="incorrect text-center">
-      <h2>Incorrect answers:</h2>
-    </div>
-    <% @wrong.each do |f|%>
-      <div class="question-answer-block">
-        <h3 class="question">Question: <%= f.question.problem %></h3>
-        <div class="answer-section">
-          <button class="answer-btn correct">
-            The correct answer: <i class="fa-regular fa-circle-check"></i> <%= f.question.correct_answer %>
-          </button>
-          <button class="answer-btn wrong">
-            Your Answer: <i class="fa-regular fa-circle-xmark"></i> <%= f.user_answer %>
-          </button>
-        </div>
+    <div class="container">
+      <div id="incorrect text-center">
+        <h2 class="text-center">Incorrect answers</h2>
       </div>
+      </div>
+      <% @wrong.each do |f|%>
+        <div class="question-answer-block">
+          <div class="together">
+            <h3 class="question"><%= f.question.problem %></h3>
+            <div class="answer-section">
+              <div class="answer-buttons">
+                <button class="answer-btn correct">
+                  The correct answer: <i class="fa-regular fa-circle-check"></i> <%= f.question.correct_answer %>
+                </button>
+                <button class="answer-btn wrong">
+                  Your Answer: <i class="fa-regular fa-circle-xmark"></i> <%= f.user_answer %>
+                </button>
+            </div>
+          </div>
+        </div>
     <% end %>
   </div>
 </div>
+</div>
+</div>
+
+<%= link_to dashboard_path do %>
+<div class="circlecontainer">
+<div class="goback"><p>Go Back</p>
+</div>
+<div class="containeranimation">
+        <ul class="moon">
+          <li class="crater"></li>
+          <li class="crater"></li>
+          <li class="crater"></li>
+        </ul>
+        <ul class="mountain-range">
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+          <li class="mountain"></li>
+        </ul>
+      <ul class="forest">
+        <li class="hill"></li>
+        <li class="hill"></li>
+        <li class="hill"></li>
+      </ul>
+      <ul class="sparkles">
+          <li class="sparkle one"></li>
+          <li class="sparkle one"></li>
+          <li class="sparkle one"></li>
+          <li class="sparkle one"></li>
+          <li class="sparkle two"></li>
+          <li class="sparkle two"></li>
+          <li class="sparkle two"></li>
+          <li class="sparkle two"></li>
+          <li class="sparkle three"></li>
+          <li class="sparkle three"></li>
+          <li class="sparkle three"></li>
+          <li class="sparkle three"></li>
+          <li class="sparkle four"></li>
+          <li class="sparkle four"></li>
+          <li class="sparkle four"></li>
+          <li class="sparkle four"></li>
+          <li class="sparkle five"></li>
+          <li class="sparkle five"></li>
+          <li class="sparkle five"></li>
+          <li class="sparkle five"></li>
+          <li class="sparkle six"></li>
+          <li class="sparkle six"></li>
+          <li class="sparkle six"></li>
+          <li class="sparkle six"></li>
+          <li class="sparkle seven"></li>
+          <li class="sparkle seven"></li>
+          <li class="sparkle seven"></li>
+          <li class="sparkle seven"></li>
+          <li class="sparkle eight"></li>
+          <li class="sparkle eight"></li>
+          <li class="sparkle eight"></li>
+          <li class="sparkle eight"></li>
+        </ul>
+      <div class="grass">
+        <div class="pokemon">
+          <div class="poke" id="bulbasaur">
+            <div class="ear"></div>
+            <div class="ear"></div>
+            <div class="head"></div>
+            <div class="leg"></div>
+            <div class="bulba-body"></div>
+            <div class="bulbs">
+              <div class="bulb"></div>
+            </div>
+          </div>
+          <div class="poke" id="pikachu">
+            <div class="ear"></div>
+            <div class="ear"></div>
+            <div class="hand"></div>
+            <div class="pika-body"></div>
+            <div class="head"></div>
+            <div class="pika-tail"></div>
+          </div>
+        </div>
+      </div>
+</div>
+<% end %>
