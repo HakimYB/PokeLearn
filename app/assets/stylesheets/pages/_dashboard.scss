@@ -144,7 +144,7 @@
   }
   }
 
-.big-card-screen-inner dex-card-pokemon{
+.big-card-screen-inner .dex-card-pokemon{
   &.bug { background-color: #8CB230; }
   &.grass { background-color: #77CC55; }
   &.fire { background-color: #FF4422; }
@@ -208,8 +208,9 @@
   display: flex;
   // justify-content: center;
   background-color: white;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  // padding-top: 16px;
+  // padding-bottom: 16px;
+  padding: 16px;
   margin-top: 10px;
   border-radius: 20px;
   background-image: linear-gradient(to bottom right,rgba(255,255,255,0.8),rgba(0,0,0,0.3));
@@ -235,7 +236,7 @@
   &.flying { background-color: #A98FF3; }
 }
 .big-card-image {
-  height: 300px;
+  height: 250px;
   width: 100%;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
 }
@@ -313,7 +314,7 @@
 
 .big-card-detail {
   position: absolute;
-  top: 48%;
+  top: 40%;
   width: 100%;
   p {
     font-family: $nes-font;
@@ -323,10 +324,10 @@
 
 
 #pokemon-image {
-  width: 200px;
-  height: 200px;
+  width: 230px;
+  height: 230px;
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 100%;
