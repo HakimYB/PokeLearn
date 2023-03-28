@@ -1,28 +1,25 @@
 <div class="big-card" data-big-card-target="card"  >
-  <div class="dashboard-row d-flex justify-content-between align-items-center">
-    <div class="badge-exp d-flex justify-content-between align-items-center">
-
-    </div>
-  </div>
-  <div class="big-card-screen">
-    <div class="big-card-screen-inner dex-card-pokemon dex-card <%=current_pokemon.types.first %>">
-      <img src="<%= current_pokemon.image_url %>" alt="<%= current_pokemon.name %> image" id="pokemon-image">
+  <div class="big-card-screen <%=current_pokemon.types.first %>">
+    <div class="big-card-screen-inner flex-grow-1 dex-card-pokemon dex-card <%=current_pokemon.types.first %>">
+      <div class="big-card-image <%=current_pokemon.types.first %>">
+        <img src="<%= current_pokemon.image_url %>" alt="<%= current_pokemon.name %> image" id="pokemon-image">
+      </div>
       <% if current_pokemon.evolves_to.nil?%>
       <% else %>
        <%= button_to "Evolve", user_pokemon_evolve_path(@current_user_pokemon), :id => "", :class => "button is-primary btn-blue nes-btn", :method => :post %>
        <% end %>
       <div class="big-card-detail">
-        <div class="name-type d-flex justify-content-between">
-          <h1 class="pokemon-name" ><%= current_pokemon.name.capitalize %></h1>
-          <div class="dex-card-types">
-            <% current_pokemon.types.each do |type| %>
-              <div class="tag <%=type %>">
-                <%= type.capitalize %>
-              </div>
-            <% end %>
-          </div>
+        <div class="dex-card-types">
+          <% current_pokemon.types.each do |type| %>
+            <div class="tag <%=type %>">
+              <%= type.capitalize %>
+            </div>
+          <% end %>
         </div>
-        <p><%= description["flavor_text_entries"][0]["flavor_text"] %></p>
+        <div class="name-type text-center">
+          <h1 class="pokemon-name" ><%= current_pokemon.name.capitalize %></h1>
+          <p><%= description["flavor_text_entries"][0]["flavor_text"] %></p>
+        </div>
 
         <div class="big-card-info tab">
           <button class="tablinks" onclick="openCity(event, 'Ability')">Ability</button>

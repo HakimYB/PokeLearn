@@ -35,6 +35,10 @@
   a {
     text-decoration: none;
   }
+  a:hover {
+    text-decoration: none;
+  }
+
 }
 
 .dashboard-scrolling-container {
@@ -197,22 +201,72 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  border-radius: 0 !important;
 }
 
 .big-card-screen{
   display: flex;
-  justify-content: center;
+  // justify-content: center;
+  background-color: white;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background-image: linear-gradient(to bottom right,rgba(255,255,255,0.8),rgba(0,0,0,0.3));
+}
+.big-card-screen {
+  &.bug { background-color: #8CB230; }
+  &.grass { background-color: #77CC55; }
+  &.fire { background-color: #FF4422; }
+  &.water { background-color: #44AAFF; }
+  &.normal { background-color: #AAAA99; }
+  &.poison { background-color: #AA5599; }
+  &.electric { background-color: #FFC600; }
+  &.ground { background-color: #DDBB55; }
+  &.fighting { background-color: #BB5544; }
+  &.psychic { background-color: #FF5599; }
+  &.rock { background-color: #BBAA66; }
+  &.ice { background-color: #66CCCC; }
+  &.ghost { background-color: #6666BB; }
+  &.dragon { background-color: #7766EE; }
+  &.dark { background-color: #775544; }
+  &.steel { background-color: #AAAABB; }
+  &.fairy { background-color: #EE99EE; }
+  &.flying { background-color: #A98FF3; }
+}
+.big-card-image {
+  height: 300px;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+}
+
+.big-card-image {
+  &.bug { background-color: #8CB230; }
+  &.grass { background-color: #77CC55; }
+  &.fire { background-color: #FF4422; }
+  &.water { background-color: #44AAFF; }
+  &.normal { background-color: #AAAA99; }
+  &.poison { background-color: #AA5599; }
+  &.electric { background-color: #FFC600; }
+  &.ground { background-color: #DDBB55; }
+  &.fighting { background-color: #BB5544; }
+  &.psychic { background-color: #FF5599; }
+  &.rock { background-color: #BBAA66; }
+  &.ice { background-color: #66CCCC; }
+  &.ghost { background-color: #6666BB; }
+  &.dragon { background-color: #7766EE; }
+  &.dark { background-color: #775544; }
+  &.steel { background-color: #AAAABB; }
+  &.fairy { background-color: #EE99EE; }
+  &.flying { background-color: #A98FF3; }
 }
 
 .dex-card-pokemon {
   position: relative;
   background-color: rgba(255, 255, 255, 0.393);
-  // height: 30%;
   height: 660px;
-  width: 80%;
-  margin: 10px;
-  border-radius: 20px;
-  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.3);
+  width: 90%;
+  margin: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -259,7 +313,7 @@
 
 .big-card-detail {
   position: absolute;
-  top: 60%;
+  top: 48%;
   width: 100%;
   p {
     font-family: $nes-font;
@@ -269,8 +323,8 @@
 
 
 #pokemon-image {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -292,7 +346,11 @@
 
 .dex-card-title {
   color: white;
+  font-size: 1.17em;
 }
 .first-row-text {
   padding-top:1rem;
+}
+.pokemon-name {
+  font-size: 1.7em;
 }
