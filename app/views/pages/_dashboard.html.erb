@@ -1,6 +1,7 @@
 <div class="first-row d-flex justify-content-between align-items-center">
-  <p> You have <%= @user_pokemons.length %> pokemons </p>
-  <div><p>Exp: <%= current_user.point %></p></div>
+  <p class="first-row-text"> You have <%= @user_pokemons.length %> pokemons </p>
+  <%= image_tag "walking_ash_pikachu.gif", class: "walking_ash_pika" %>
+  <p  class="first-row-text">Exp: <%= current_user.point %></p>
   <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning" %>
 </div>
 <div class="big-container dashboard-bkg">

@@ -17,5 +17,7 @@ $flexo: "Flexo Medium";
 $nes-font: 'Press Start 2P', cursive;
 
 // Define fonts for body and headers
-$body-font:'Roboto', sans-serif;
-$headers-font: "Flexo Medium", "sans-serif";
+// $body-font:'Roboto', sans-serif;
+// $headers-font: "Flexo Medium", "sans-serif";
+$body-font: $nes-font, sans-serif;
+$headers-font: $nes-font, "sans-serif";
