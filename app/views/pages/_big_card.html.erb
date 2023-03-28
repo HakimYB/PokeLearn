@@ -9,7 +9,7 @@
       <img src="<%= current_pokemon.image_url %>" alt="<%= current_pokemon.name %> image" id="pokemon-image">
       <% if current_pokemon.evolves_to.nil?%>
       <% else %>
-       <%= button_to "Evolve", user_pokemon_evolve_path(@current_user_pokemon), :id => "", :class => "button is-primary btn-blue nes-btn", :method => :post %>
+       <%= button_to "Evolve", user_pokemon_evolve_path(@current_user_pokemon), :class => "button is-primary btn-blue nes-btn", :method => :post %>
        <% end %>
       <div class="big-card-detail">
         <div class="name-type d-flex justify-content-between">
