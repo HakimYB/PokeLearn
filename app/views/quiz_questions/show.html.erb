@@ -1,4 +1,3 @@
-<body>
 <div id="container">
   <%= render "shared/navbar" %>
 
@@ -15,10 +14,10 @@
     <%= simple_form_for @quiz_question do |f| %>
       <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle %>
       <div class="quiz-question">
-        <%= f.label raw(@problem), class: "col-form-label pt-0" %>
+        <%= f.label raw(@problem), class: "col-form-label pt-0"%>
         <div class="answer-options">
           <% randomize.each_with_index do |answer, index| %>
-            <button class="answer-option" type="submit" name="quiz_question[user_answer]" value="<%= answer %>">
+            <button class="answer-option" type="submit" name="quiz_question[user_answer]" value="<%= answer %>"  data-bs-toggle="tooltip" data-bs-placement="top" data-controller="tooltip" title="<%= answer%>">
               <%= raw(answer)%>
             </button>
           <% end %>
@@ -36,4 +35,3 @@
     </div>
   </div>
 </div>
-</body>
