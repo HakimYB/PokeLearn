@@ -299,17 +299,37 @@
 }
 .tablink-name {
   font-size: 0.5rem;
+  color: $gray;
 }
 
 .tablinks {
   border-radius: 10px 10px 0 0;
-  border: 3px solid #666;
-  border-bottom: none;
+  border: 3px solid #666 !important;
+  border-bottom: none !important;
+  background-color: rgba(255, 255, 255, 0.5);
+  &.bug { background-color: #8CB230; }
+  &.grass { background-color: #77CC55; }
+  &.fire { background-color: #FF4422; }
+  &.water { background-color: #44AAFF; }
+  &.normal { background-color: #AAAA99; }
+  &.poison { background-color: #AA5599; }
+  &.electric { background-color: #FFC600; }
+  &.ground { background-color: #DDBB55; }
+  &.fighting { background-color: #BB5544; }
+  &.psychic { background-color: #FF5599; }
+  &.rock { background-color: #BBAA66; }
+  &.ice { background-color: #66CCCC; }
+  &.ghost { background-color: #6666BB; }
+  &.dragon { background-color: #7766EE; }
+  &.dark { background-color: #775544; }
+  &.steel { background-color: #AAAABB; }
+  &.fairy { background-color: #EE99EE; }
+  &.flying { background-color: #A98FF3; }
 }
 
 /* Style the buttons inside the tab */
 .tab button {
-  background-color: inherit;
+  // background-color: inherit;
   float: left;
   border: none;
   outline: none;
