@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     if params[:query].present?
       @user_pokemons = UserPokemon.search_by_pokemon(params[:query]).where(user: current_user)
     else
-      @user_pokemons = UserPokemon.where(user: current_user)
+      @user_pokemons = UserPokemon.where(user: current_user).order("created_at DESC")
     end
 
     if @user_pokemons.exists?
@@ -36,10 +36,12 @@ class PagesController < ApplicationController
     if params[:query].present?
       @user_pokemons = UserPokemon.search_by_pokemon(params[:query]).where(user: current_user)
     else
-      @user_pokemons = UserPokemon.where(user: current_user)
+      @user_pokemons = UserPokemon.where(user: current_user).order("created_at DESC")
     end
+
     @current_pokemon = Pokemon.find(params[:id])
     @current_user_pokemon = @user_pokemons.find_by(pokemon: @current_pokemon)
+
     name = @current_pokemon.name
     url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
     @pokemon = JSON.parse(URI.open(url).read)
