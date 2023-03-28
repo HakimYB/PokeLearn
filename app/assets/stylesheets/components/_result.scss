@@ -131,15 +131,15 @@ $sparkle-colors: #fffce6, #ffeefc, #f3ffe4, #e9fbff;
   }
 }
 
-body {
-  background-color: $white;
-}
-ul {
-  padding: 0;
-}
-li {
-  list-style: none;
-}
+// body {
+//   background-color: $white;
+// }
+// ul {
+//   padding: 0;
+// }
+// li {
+//   list-style: none;
+// }
 .superclass{
   height: 100%;
 
@@ -220,7 +220,7 @@ li {
   }
 }
 
-.grass {
+.herbe {
   position: absolute;
   width: 600px;
   height: 300px;
