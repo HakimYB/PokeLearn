@@ -28,12 +28,12 @@
           <% end %>
         </div>
         <div class="tab-container <%=current_pokemon.types.first %>">
-          <div class="big-card-info tab">
-            <button class="tablinks" onclick="openCity(event, 'Ability')">
-            <p class="tablink-name">Ability</p>
+          <div class="big-card-info tab d-flex justify-content-center">
+            <button class="tablinks active" onclick="openTab(event, 'Ability')">
+            <p class="tablink-name active">Ability</p>
             </button>
-            <button class="tablinks" onclick="openCity(event, 'Size')"><p class="tablink-name">Size</p></button>
-            <button class="tablinks" onclick="openCity(event, 'Species')">
+            <button class="tablinks" onclick="openTab(event, 'Size')"><p class="tablink-name">Size</p></button>
+            <button class="tablinks" onclick="openTab(event, 'Species')">
             <p class="tablink-name">Species</p></button>
           </div>
           <div id="Ability" class="tabcontent <%=current_pokemon.types.first %>">
@@ -54,7 +54,7 @@
 
 
         <script>
-        function openCity(evt, cityName) {
+        function openTab(evt, tabName) {
           var i, tabcontent, tablinks;
           tabcontent = document.getElementsByClassName("tabcontent");
           for (i = 0; i < tabcontent.length; i++) {
@@ -64,7 +64,7 @@
           for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
           }
-          document.getElementById(cityName).style.display = "block";
+          document.getElementById(tabName).style.display = "block";
           evt.currentTarget.className += " active";
         }
         </script>
