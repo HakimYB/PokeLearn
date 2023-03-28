@@ -41,6 +41,7 @@ class PagesController < ApplicationController
       @user_pokemons = UserPokemon.search_by_pokemon(params[:query]).where(user: current_user)
     else
       @user_pokemons = UserPokemon.where(user: current_user).order("created_at DESC")
+      @testing_pokemon = UserPokemon.where(user: current_user).select("distinct pokemon_id").order("pokemon_id DESC")
     end
 
     @current_pokemon = Pokemon.find(params[:id])
