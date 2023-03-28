@@ -1,13 +1,15 @@
 <div class="big-card" data-big-card-target="card"  >
+      <% if current_pokemon.evolves_to.nil?%>
+      <% else %>
+        <div class="d-flex justify-content-center mt-2">
+          <%= button_to "Evolve", user_pokemon_evolve_path(@current_user_pokemon), :id => "", :class => "button is-primary btn-blue nes-btn", :method => :post %>
+        </div>
+      <% end %>
   <div class="big-card-screen <%=current_pokemon.types.first %>">
     <div class="big-card-screen-inner flex-grow-1 dex-card-pokemon dex-card <%=current_pokemon.types.first %>">
       <div class="big-card-image <%=current_pokemon.types.first %>">
         <img src="<%= current_pokemon.image_url %>" alt="<%= current_pokemon.name %> image" id="pokemon-image">
       </div>
-      <% if current_pokemon.evolves_to.nil?%>
-      <% else %>
-       <%= button_to "Evolve", user_pokemon_evolve_path(@current_user_pokemon), :id => "", :class => "button is-primary btn-blue nes-btn", :method => :post %>
-       <% end %>
       <div class="big-card-detail">
         <div class="dex-card-types">
           <% current_pokemon.types.each do |type| %>
@@ -19,37 +21,37 @@
         <div class="name-type text-center">
           <h1 class="pokemon-name" ><%= current_pokemon.name.capitalize %></h1>
           <p><%= description["flavor_text_entries"][0]["flavor_text"] %></p>
-        </div>
-
-        <div class="big-card-info tab">
-          <button class="tablinks" onclick="openCity(event, 'Ability')">Ability</button>
-          <button class="tablinks" onclick="openCity(event, 'HeightWeight')">Height & Weight</button>
-          <button class="tablinks" onclick="openCity(event, 'Species')">Species</button>
-          <button class="tablinks" onclick="openCity(event, 'Evolution')">Evolution</button>
-        </div>
-
-        <div id="Ability" class="tabcontent">
-          <% pokemon["abilities"].each do |ability| %>
-            <p><%= ability["ability"]["name"] %></p>
-            <% end %>
-        </div>
-
-        <div id="HeightWeight" class="tabcontent">
-          <p>Height: <%= pokemon["height"]*10 %> cm</p>
-          <p>Weight: <%= pokemon["weight"]/10 %> kg</p>
-        </div>
-
-        <div id="Species" class="tabcontent">
-          <p><%= pokemon["species"]["name"] %></p>
-        </div>
-
-        <div id="Evolution" class="tabcontent">
           <% if current_pokemon.evolves_to.nil? %>
             <p>This Pokémon does not evolve.</p>
           <% else %>
             <p>This Pokémon evolves to <%= current_pokemon.evolves_to.capitalize %>.</p>
           <% end %>
         </div>
+        <div class="tab-container <%=current_pokemon.types.first %>">
+          <div class="big-card-info tab">
+            <button class="tablinks" onclick="openCity(event, 'Ability')">
+            <p class="tablink-name">Ability</p>
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'Size')"><p class="tablink-name">Size</p></button>
+            <button class="tablinks" onclick="openCity(event, 'Species')">
+            <p class="tablink-name">Species</p></button>
+          </div>
+          <div id="Ability" class="tabcontent <%=current_pokemon.types.first %>">
+            <% pokemon["abilities"].each do |ability| %>
+              <p><%= ability["ability"]["name"] %></p>
+              <% end %>
+          </div>
+
+          <div id="Size" class="tabcontent  <%=current_pokemon.types.first %>">
+            <p>Height: <%= pokemon["height"]*10 %> cm</p>
+            <p>Weight: <%= pokemon["weight"]/10 %> kg</p>
+          </div>
+
+          <div id="Species" class="tabcontent  <%=current_pokemon.types.first %>">
+            <p><%= pokemon["species"]["name"] %></p>
+          </div>
+        </div>
+
 
         <script>
         function openCity(evt, cityName) {
