@@ -42,7 +42,7 @@
 }
 
 .dashboard-scrolling-container {
-  height: 600px;
+  height: 690px;
   overflow-y: scroll;
   background-color: rgba(243, 237, 237, 0.504);
   padding: 10px;
@@ -273,9 +273,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.tab-container {
-
-}
 /* Style the tab */
 .tab {
   overflow: hidden;
@@ -304,6 +301,12 @@
   font-size: 0.5rem;
 }
 
+.tablinks {
+  border-radius: 10px 10px 0 0;
+  border: 3px solid #666;
+  border-bottom: none;
+}
+
 /* Style the buttons inside the tab */
 .tab button {
   background-color: inherit;
@@ -315,6 +318,7 @@
   transition: 0.3s;
   font-size: 14px;
   height: 30px;
+  color: $gray;
 }
 
 /* Change background color of buttons on hover */
@@ -329,12 +333,17 @@
 
 /* Style the tab content */
 .tabcontent {
-  display: none;
   padding: 6px 12px;
   // border: 1px solid #ccc;
   // border-top: none;
   background-color: white;
   line-height: 1;
+  height:200px;
+}
+
+.tabcontainer > .tabcontent:not(:first-child) {
+  display: none;
+
 }
 
 .big-card-detail {
