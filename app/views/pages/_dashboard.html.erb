@@ -5,11 +5,9 @@
 </div>
 <div class="big-container dashboard-bkg">
   <div class="row w-100"  data-controller="big-card">
-    <div class="col-6">
+    <div class="col-12 col-md-7">
       <div class="big-card-left">
-      <div class="d-flex justify-content-between align-items-center">
-        </div>
-          <div class="search-bar">
+        <div class="search-bar">
           <%# <h2 class="text-center">Pokédex</h2> %>
           <%= form_with url: dashboard_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev dashboard-search-bar" do %>
             <%= text_field_tag :query,
@@ -29,8 +27,8 @@
                     <img src="<%= user_pokemon.pokemon.image_url %>" alt="<%= user_pokemon.pokemon.name %> image">
                   </div>
                   <div class="dex-card-info-container">
-                    <div class="dex-card-title">
-                      <h3><%= user_pokemon.pokemon.name.capitalize %></h3>
+                    <div>
+                      <h3  class="dex-card-title"><%= user_pokemon.pokemon.name.capitalize %></h3>
                       <div class="dex-card-types">
                       <% user_pokemon.pokemon.types.each do |type| %>
                         <div class="tag <%=type %>">
@@ -47,10 +45,10 @@
         </div>
       </div>
     </div>
-    <div class="col-6">
-    <% if @user_pokemons.exists? %>
-      <%= render "big_card", current_pokemon:@current_pokemon, pokemon:@pokemon, description:@description %>
-    <% end %>
+    <div class="col-12 col-md-5">
+      <% if @user_pokemons.exists? %>
+        <%= render "big_card", current_pokemon:@current_pokemon, pokemon:@pokemon, description:@description %>
+      <% end %>
     </div>
   </div>
 </div>
