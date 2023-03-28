@@ -279,10 +279,20 @@
   max-height: 100%;
 }
 
-.first-row p {
+.first-row {
+  height: 60px;
+  padding: 10px;
+  p {
   font-family: $nes-font;
+  }
+  img {
+    width: 120px;
+  }
 }
 
 .dex-card-title {
   color: white;
+}
+.first-row-text {
+  padding-top:1rem;
 }
