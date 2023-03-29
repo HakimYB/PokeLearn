@@ -4,8 +4,8 @@
       <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1200px-Pok%C3%A9_Ball_icon.svg.png" %>
     <% end %>
     <% if user_signed_in? %>
-      <% if current_page?(quiz_new_path) %>
-        <h1 class="text-center"><%= current_user.username %>'s map</h1>
+      <% if current_page?(new_quiz_path) %>
+        <h1 class="text-center"><%= current_user.username %>'s Map</h1>
       <% end %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
