@@ -4,7 +4,7 @@
 
     <div class="text-center heading">
       <div id="background2">
-        <h1>Quiz time!</h1>
+        <h1 class="quiz-show-title">Quiz time!</h1>
       </div>
     </div>
 
@@ -14,10 +14,10 @@
         <%= simple_form_for @quiz_question do |f| %>
           <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle %>
           <div class="quiz-question">
-            <%= f.label raw(@problem), class: "col-form-label pt-0" %>
+            <%= f.label raw(@problem), class: "col-form-label pt-0 question-text" %>
             <div class="answer-options">
               <% randomize.each_with_index do |answer, index| %>
-                <button class="answer-option" type="submit" name="quiz_question[user_answer]" value="<%= answer %>">
+                <button class="answer-option nes-btn is-primary btn-blue answer-button" type="submit" name="quiz_question[user_answer]" value="<%= answer %>">
                   <%= raw(answer)%>
                 </button>
               <% end %>
