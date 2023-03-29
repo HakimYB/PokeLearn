@@ -40,7 +40,7 @@ class QuizzesController < ApplicationController
     @user.point += @quiz.score
     @user.save!
     @pokemon_of_type = Pokemon.all.select do |pokemon|
-     pokemon.types.include?(@quiz.element)
+    pokemon.types.include?(@quiz.element)
     end
 
     if @quiz.total == 5
