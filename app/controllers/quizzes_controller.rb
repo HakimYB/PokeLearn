@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+  before_action :set_pokemon_ids, only: [:new]
 
   def new
     @quiz = Quiz.new
@@ -64,5 +65,9 @@ class QuizzesController < ApplicationController
 
   def quiz_params
     params.require(:quiz).permit(:element)
+  end
+
+  def set_pokemon_ids
+    @pokemon_ids = current_user.pokemon_ids if current_user.present?
   end
 end
