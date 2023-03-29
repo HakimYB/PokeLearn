@@ -11,10 +11,10 @@ class UserPokemonsController < ApplicationController
       @evolved = UserPokemon.create(pokemon: @new_pokemon, user: @user)
 
       flash[:notice] = "New pokemon added to Pokedex!"
-      redirect_to dashboard_path
+      redirect_to pokedex_path
     else
       flash[:alert] = "You don't have enough points"
-      redirect_to dashboard_path
+      redirect_to pokedex_path
     end
   end
 end

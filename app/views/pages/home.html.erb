@@ -7,7 +7,7 @@
   </div>
 
   <% if user_signed_in? %>
-    <a href="/dashboard" class="button btn-blue nes-btn is-primary home-button">&#9656;Start</i></a>
+    <a href="/pokedex" class="button btn-blue nes-btn is-primary home-button">&#9656;Start</i></a>
   <% else %>
     <%= link_to "Sign in", new_user_session_path, class:"button btn-yellow home-button nes-btn is-primary" %>
   <% end %>
