@@ -5,9 +5,9 @@
   <% else %>
    <p class="first-row-text"> You have <%= @unique_pokemon.length %>/151 pokemon </p>
   <% end %>
-  <%= image_tag "walking_ash_pikachu.gif", class: "walking_ash_pika" %>
+  <%= image_tag "walking_ash_pikachu.gif", class: "walking-ash-pika" %>
   <p  class="first-row-text">Exp: <%= current_user.point %></p>
-  <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning" %>
+  <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning moving-left" %>
 </div>
 <div class="big-container dashboard-bkg">
   <div class="row w-100 middle-container"  data-controller="big-card">
