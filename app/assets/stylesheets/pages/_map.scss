@@ -84,12 +84,27 @@
 
 .map-body {
   width: 100%;
-  height: 100vh;
+  height: 93.2vh;
   background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('wallpaperflare.com_wallpaper.png');
   background-size: cover;
   padding: 15px;
 }
 
 .map-title {
+  position: relative;
   font-family: 'Press Start 2P', cursive;
+  right: 22px;
+}
+
+.dex-map {
+  position: relative;
+  background-color: rgba(243, 237, 237, 0.504);
+  height: 615px;
+  width: 95%;
+  border-radius: 20px;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 30px;
+  padding-left: 50px;
+  right: 65px;
 }
