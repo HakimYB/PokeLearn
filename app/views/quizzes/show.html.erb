@@ -11,97 +11,113 @@
 </div>
 
 <div class="superclass">
-<div class="container main-container">
-  <div class="left-container">
-<div class="container result-container">
-  <h1>Results: <span><%= @quiz.total %></span>/5</h1>
-  <h2 class="result-face">
-    <% if @quiz.total >= 7 %> <i class="fa-solid fa-face-laugh-squint"></i>
-    <% elsif @quiz.total >= 3 %> <i class="fa-solid fa-face-smile"></i>
-    <% elsif @quiz.total >= 0 %> <i class="fa-solid fa-face-tired"></i>
-    <% end %>
-  </h2>
+  <div class="container main-container">
+    <div class="left-container">
+      <div class="container result-container">
+      <h1>Results: <span><%= @quiz.total %></span>/5</h1>
+      <h2 class="result-face">
+        <% if @quiz.total >= 7 %> <i class="fa-solid fa-face-laugh-squint"></i>
+        <% elsif @quiz.total >= 3 %> <i class="fa-solid fa-face-smile"></i>
+        <% elsif @quiz.total >= 0 %> <i class="fa-solid fa-face-tired"></i>
+        <% end %>
+      </h2>
+      <%# <div
+        data-controller="notification"
+        data-notification-hidden-value="true"
+        data-action="awesome@window->notification#show"
+        class="transition transform duration-1000 hidden"
+        data-transition-enter-from="opacity-0 translate-x-6"
+        data-transition-enter-to="opacity-100 translate-x-0"
+        data-transition-leave-from="opacity-100 translate-x-0"
+        data-transition-leave-to="opacity-0 translate-x-6"
+      >
+        <p>Pokemon added to your Pokedex!</p>
+        <button data-action="notification#hide">X</button>
+      </div> %>
+      <%# <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const event = new CustomEvent('awesome')
+          window.dispatchEvent(event)
+        })
+      </script> %>
 
-  <div class="points-js">
-     + <span>
+      <div class="points-js">
+          + <span>
+            <div
+              data-controller="animated-number"
+              data-animated-number-start-value="0"
+              data-animated-number-end-value="<%=@quiz.score%>"
+              data-animated-number-duration-value="2500"
+            >
+              0
+            </div>
+          </span>
+          EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TOTAL: <span>
         <div
           data-controller="animated-number"
-          data-animated-number-start-value="0"
-          data-animated-number-end-value="<%=@quiz.score%>"
+          data-animated-number-start-value= <%= @previous_total%>
+          data-animated-number-end-value="<%= @user.point %>"
           data-animated-number-duration-value="2500"
         >
           0
         </div>
-      </span>
-      EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TOTAL: <span>
+        </span> EXP
 
-    <div
-      data-controller="animated-number"
-      data-animated-number-start-value= <%= @previous_total%>
-      data-animated-number-end-value="<%= @user.point %>"
-      data-animated-number-duration-value="2500"
-    >
-      0
-    </div>
-    </span> EXP
+      </div>
 
-  </div>
-
-
-  <div class="new-pokemon">
-    <h2>You caught:</h2>
-      <div class="dex-cards">
-        <div class="dex-card-container">
-          <% @new_pokemons.each do |pokemon| %>
-            <div class="dex-card <%=pokemon.types.first %>">
-              <div class="dex-card-img-container">
-                <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
-              </div>
-              <div class="dex-card-info-container">
-                <div class="dex-card-title">
-                  <h3><%= pokemon.name.capitalize %></h3>
-                  <div class="dex-card-types">
-                    <% pokemon.types.each do |type| %>
-                      <div class="tag <%=type %>">
-                        <%= type.capitalize %>
-                      </div>
-                    <% end %>
+      <div class="new-pokemon">
+        <h2>You caught:</h2>
+        <div class="dex-cards">
+          <div class="dex-card-container">
+            <% @new_pokemons.each do |pokemon| %>
+              <div class="dex-card <%=pokemon.types.first %>">
+                <div class="dex-card-img-container">
+                  <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
+                </div>
+                <div class="dex-card-info-container">
+                  <div class="dex-card-title">
+                    <h3><%= pokemon.name.capitalize %></h3>
+                    <div class="dex-card-types">
+                      <% pokemon.types.each do |type| %>
+                        <div class="tag <%=type %>">
+                          <%= type.capitalize %>
+                        </div>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="right-container">
+  <div class="right-container">
     <div class="container">
       <div id="incorrect text-center">
         <h2 class="text-center">Incorrect answers</h2>
       </div>
-      </div>
-      <% @wrong.each do |f|%>
-        <div class="question-answer-block">
-          <div class="together">
-            <h3 class="question"><%= f.question.problem %></h3>
-            <div class="answer-section">
-              <div class="answer-buttons">
-                <button class="answer-btn correct">
-                  Correct answer: <i class="fa-regular fa-circle-check"></i> <%= f.question.correct_answer %>
-                </button>
-                <button class="answer-btn wrong">
-                  Your Answer: <i class="fa-regular fa-circle-xmark"></i> <%= f.user_answer %>
-                </button>
+    </div>
+    <% @wrong.each do |f|%>
+      <div class="question-answer-block">
+        <div class="together">
+          <h3 class="question"><%= f.question.problem %></h3>
+          <div class="answer-section">
+            <div class="answer-buttons">
+              <button class="answer-btn correct">
+                Correct answer: <i class="fa-regular fa-circle-check"></i> <%= f.question.correct_answer %>
+              </button>
+              <button class="answer-btn wrong">
+                Your Answer: <i class="fa-regular fa-circle-xmark"></i> <%= f.user_answer %>
+              </button>
             </div>
           </div>
         </div>
+      </div>
     <% end %>
   </div>
-</div>
-</div>
 </div>
 
 <%= link_to dashboard_path do %>

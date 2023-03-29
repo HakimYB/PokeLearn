@@ -4,17 +4,19 @@
     <div class="row">
       <div class="col-12 col-md-6">
         <div class = "map" >
-          <h2 class="map-title">Choose an element:</h2>
-          <div class = "spacing">
-            <% @elements.each do |e| %>
-              <%= simple_form_for @quiz do |f| %>
-                <%= f.input :element, input_html: { class: 'hide', value: "#{e}"}, label: false %>
-                <%= image_submit_tag "#{e}.png", class: "element-icons #{e}-pic", data: { controller: "tooltip", bs_toggle: "tooltip", bs_placement: "top" }, title: "#{e.capitalize}"%>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+         <h2 class="map-title">Choose an element</h2>
+          <div class ="dex-map">
+           <div class = "spacing">
+             <% @elements.each do |e| %>
+               <%= simple_form_for @quiz do |f| %>
+                 <%= f.input :element, input_html: { class: 'hide', value: "#{e}"}, label: false %>
+                 <%= image_submit_tag "#{e}.png", class: "element-icons #{e}-pic", data: { controller: "tooltip", bs_toggle: "tooltip", bs_placement: "top" }, title: "#{e}"%>
+               <% end %>
+             <% end %>
+           </div>
+         </div>
+       </div>
+     </div>
       <div class="col-12 col-md-6">
         <div class="pokemon-cards">
           <div class="nes-field is-inlinev d-flex justify-content-center ">
@@ -22,14 +24,15 @@
               <%= text_field_tag :query,
                   params[:query],
                   class: "nes-input search-bar-map",
-                  placeholder: "Enter a pokémon's name"
+                  placeholder: "Find a missing Pokemon"
               %>
               <%= submit_tag "Search", class: "button btn-yellow nes-btn is-warning" %>
             <% end %>
           </div>
 
-          <div class="dex-cards scrolling-container">
-            <% @pokemons.each do |pokemon| %>
+        <div class="dex-cards scrolling-container">
+          <% @pokemons.each do |pokemon| %>
+            <% unless @pokemon_ids.include?(pokemon.id) %>
               <div class="dex-card <%=pokemon.types.first %>">
                 <div class="dex-card-img-container">
                   <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
@@ -48,7 +51,8 @@
                 </div>
               </div>
             <% end %>
-          </div>
+          <% end %>
+        </div>
         </div>
       </div>
     </div>
