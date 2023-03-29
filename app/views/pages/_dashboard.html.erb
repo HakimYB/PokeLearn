@@ -16,7 +16,7 @@
     <div class="col-12 col-lg-7 small-conatainer">
       <div class="big-card-left">
         <div class="search-bar mt-2">
-          <%= form_with url: dashboard_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev dashboard-search-bar" do %>
+          <%= form_with url: pokedex_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev dashboard-search-bar" do %>
             <%= text_field_tag :query,
                 params[:query],
                 class: "nes-input search-bar-map",
@@ -29,7 +29,7 @@
           <div class="dex-cards dashboard-scrolling-container">
           <% if @unique_pokemon.present? %>
             <% @unique_pokemon.each do |user_pokemon| %>
-              <%= link_to dashboard_show_path(user_pokemon.pokemon),data:{action:"click->big-card#showBigCard"} do %>
+              <%= link_to pokedex_show_path(user_pokemon.pokemon),data:{action:"click->big-card#showBigCard"} do %>
                 <div class="dex-card <%=user_pokemon.pokemon.types.first %>">
                   <div class="dex-card-img-container">
                     <img src="<%= user_pokemon.pokemon.image_url %>" alt="<%= user_pokemon.pokemon.name %> image">
@@ -50,7 +50,7 @@
               <% end %>
             <% end %>
             <% else @user_pokemons.each do |user_pokemon| %>
-              <%= link_to dashboard_show_path(user_pokemon.pokemon),data:{action:"click->big-card#showBigCard"} do %>
+              <%= link_to pokedex_show_path(user_pokemon.pokemon),data:{action:"click->big-card#showBigCard"} do %>
                 <div class="dex-card <%=user_pokemon.pokemon.types.first %>">
                   <div class="dex-card-img-container">
                     <img src="<%= user_pokemon.pokemon.image_url %>" alt="<%= user_pokemon.pokemon.name %> image">
