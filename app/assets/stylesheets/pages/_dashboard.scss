@@ -14,7 +14,7 @@
   height: 93vh;
   background-image: asset-url('dashboard-bkg.png');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-position: center bottom;
 }
 
 .dashboard-row {
@@ -46,12 +46,12 @@
 }
 
 .dashboard-scrolling-container {
-  height: 690px;
   overflow-y: scroll;
   background-color: rgba(243, 237, 237, 0.504);
   padding: 10px;
   width: 95%;
   border-radius: 20px;
+  height: 80vh;
 }
 
 .dashboard-scrolling-container::-webkit-scrollbar{
@@ -206,18 +206,16 @@
   align-items: center;
   justify-content: space-around;
   border-radius: 0 !important;
+  box-shadow: none;
 }
 
 .big-card-screen{
   display: flex;
-  // justify-content: center;
   background-color: white;
-  // padding-top: 16px;
-  // padding-bottom: 16px;
-  padding: 16px;
   margin-top: 10px;
   border-radius: 20px;
   background-image: linear-gradient(to bottom right,rgba(255,255,255,0.8),rgba(0,0,0,0.3));
+  height: 80vh;
 }
 .big-card-screen {
   &.bug { background-color: #8CB230; }
@@ -269,9 +267,9 @@
 .dex-card-pokemon {
   position: relative;
   background-color: rgba(255, 255, 255, 0.393);
-  height: 660px;
+  height: 90%;
   width: 90%;
-  margin: 0;
+  margin: 1.7rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -361,9 +359,10 @@
   padding: 6px 12px;
   // border: 1px solid #ccc;
   // border-top: none;
-  line-height: 1.5;
+  line-height: 1.2;
   height:200px;
-  background-image: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)), asset-url('body_bg.png');
+  background-image: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)), asset-url('container_bg.png');
+  background-size: contain;
   &.bug { background-color: #8CB230; }
   &.grass { background-color: #77CC55; }
   &.fire { background-color: #FF4422; }
@@ -430,6 +429,14 @@
 }
 .pokemon-name {
   font-size: 1.7em;
+}
+
+.empty-space {
+  height: 65px;
+}
+
+.middle-container {
+  height: 95%;
 }
 
 .walking-ash-pika {
