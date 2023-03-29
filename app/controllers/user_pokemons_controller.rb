@@ -13,7 +13,7 @@ class UserPokemonsController < ApplicationController
       flash[:notice] = "New pokemon added to Pokedex!"
       redirect_to pokedex_path
     else
-      flash[:alert] = "You don't have enough points"
+      flash[:alert] = "You don't have enough points..."
       redirect_to pokedex_path
     end
   end
