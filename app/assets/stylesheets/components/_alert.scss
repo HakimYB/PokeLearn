@@ -1,6 +1,19 @@
 .alert {
   position: fixed;
-  bottom: 16px;
+  top: 64px;
   right: 16px;
   z-index: 1000;
+  font-family: $nes-font;
+  font-size: .8rem;
+
+}
+//flash for "notice"
+.alert-info {
+  color:$blue;
+  background-color:$yellow;
+}
+//flash for "alert"
+.alert-warning {
+  color: white;
+  background-color:$green;
 }
