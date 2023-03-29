@@ -18,11 +18,7 @@ class PagesController < ApplicationController
       @user_pokemons = UserPokemon.search_by_pokemon(params[:query]).where(user: current_user)
     else
       @user_pokemons = UserPokemon.where(user: current_user)
-      @testing_pokemon = UserPokemon.where(user: current_user).select("distinct pokemon_id").order("pokemon_id DESC")
-      # @user_pokemons.pokemon
-      # raise
-    #   unique_ids = @user_pokemons.select("distinct pokemon_id").map{|element| element.pokemon_id}
-    #   @user_pokemons.map{|user_pokemon| unique_ids.include?(user_pokemon.pokemon.id)}
+      @unique_pokemon = UserPokemon.where(user: current_user).select("distinct pokemon_id").order("pokemon_id DESC")
     end
 
     if @user_pokemons.exists?
@@ -34,6 +30,9 @@ class PagesController < ApplicationController
       species_url = "https://pokeapi.co/api/v2/pokemon-species/#{@current_pokemon.id}/"
       @description = JSON.parse(URI.open(species_url).read)
     end
+
+    @one = @user_pokemons.first
+    @name = @one.pokemon.name
   end
 
   def dashboard_show
