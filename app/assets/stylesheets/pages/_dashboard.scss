@@ -237,13 +237,18 @@
   &.fairy { background-color: #EE99EE; }
   &.flying { background-color: #A98FF3; }
 }
+// .big-card-image {
+//   height: 250px;
+//   width: 100%;
+//   background-image: asset-url('2816.png'), linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+// }
+
 .big-card-image {
   height: 250px;
   width: 100%;
+  //  asset-url('2816.png'),
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
-}
-
-.big-card-image {
+  background-size: cover;
   &.bug { background-color: #8CB230; }
   &.grass { background-color: #77CC55; }
   &.fire { background-color: #FF4422; }
@@ -381,6 +386,10 @@
   &.steel { background-color: #AAAABB; }
   &.fairy { background-color: #EE99EE; }
   &.flying { background-color: #A98FF3; }
+  p {
+    font-size: 0.8rem;
+  }
+
 }
 
 .tabcontainer > .tabcontent:not(:first-child) {
