@@ -70,8 +70,8 @@ class PagesController < ApplicationController
     @current_pokemon = Pokemon.find(params[:id])
     @current_user_pokemon = @user_pokemons.find_by(pokemon: @current_pokemon)
 
-    name = @current_pokemon.name
-    url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
+    @name = @current_pokemon.name
+    url = "https://pokeapi.co/api/v2/pokemon/#{@name}/"
     @pokemon = JSON.parse(URI.open(url).read)
     species_url = "https://pokeapi.co/api/v2/pokemon-species/#{@current_pokemon.id}/"
     @description = JSON.parse(URI.open(species_url).read)
