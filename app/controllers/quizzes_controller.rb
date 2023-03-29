@@ -51,7 +51,6 @@ class QuizzesController < ApplicationController
     end
     @new_pokemons.each do |pokemon|
       UserPokemon.create(user: @user, pokemon: pokemon)
-      # raise
     end
 
     @completed = Quiz.find(params[:id])
