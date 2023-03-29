@@ -3,14 +3,18 @@
   display: flex;
 }
 
+.moving-left {
+  position: relative;
+  right: 850px;
+}
+
 .dashboard-bkg {
   position: relative;
   width: 100%;
-  height: 120vh;
+  height: 93vh;
   background-image: asset-url('dashboard-bkg.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .dashboard-row {
@@ -297,6 +301,7 @@
   &.fairy { background-color: #EE99EE; }
   &.flying { background-color: #A98FF3; }
 }
+
 .tablink-name {
   font-size: 0.5rem;
   color: $gray;
@@ -394,7 +399,6 @@
   }
 }
 
-
 #pokemon-image {
   width: 230px;
   height: 230px;
@@ -426,4 +430,9 @@
 }
 .pokemon-name {
   font-size: 1.7em;
+}
+
+.walking-ash-pika {
+  position: relative;
+  left: 720px;
 }
