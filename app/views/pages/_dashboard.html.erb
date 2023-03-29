@@ -10,8 +10,8 @@
   <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning" %>
 </div>
 <div class="big-container dashboard-bkg">
-  <div class="row w-100"  data-controller="big-card">
-    <div class="col-12 col-md-7">
+  <div class="row w-100 middle-container"  data-controller="big-card">
+    <div class="col-12 col-lg-7 small-conatainer">
       <div class="big-card-left">
         <div class="search-bar mt-2">
           <%# <h2 class="text-center">Pokédex</h2> %>
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-5">
+    <div class="col-12 col-lg-5">
       <% if @user_pokemons.exists? %>
         <%= render "big_card", current_pokemon:@current_pokemon, pokemon:@pokemon, description:@description %>
       <% end %>
