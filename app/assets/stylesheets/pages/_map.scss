@@ -92,7 +92,9 @@
 .map-title {
   position: relative;
   font-family: 'Press Start 2P', cursive;
+  color: white;
   right: 22px;
+  top: 30px;
 }
 
 .dex-map {
@@ -104,8 +106,14 @@
   margin: 0;
   overflow: hidden;
   padding-top: 30px;
-  padding-left: 50px;
-  right: 65px;
+  padding-left: 80px;
+  right: 70px;
+  top: 60px;
+}
+
+.uplifting {
+  position: relative;
+  top: 60px;
 }
 
 .pokemon-name-map {
