@@ -1,5 +1,7 @@
 <div class="big-card" data-big-card-target="card"  >
       <% if current_pokemon.evolves_to.nil?%>
+        <div class="empty-space">
+        </div>
       <% else %>
         <div class="d-flex justify-content-center mt-2">
           <%= button_to "Evolve", user_pokemon_evolve_path(@current_user_pokemon), :id => "", :class => "button is-primary btn-blue nes-btn", :method => :post %>
