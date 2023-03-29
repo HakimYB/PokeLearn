@@ -1,8 +1,10 @@
 <div class="first-row d-flex justify-content-between align-items-center">
-  <% if @unique_pokemon.nil? %>
-    <p class="first-row-text"> You have <%= @user_pokemons.length %> <%= @name.capitalize %></p>
-  <% else %>
-   <p class="first-row-text"> You have <%= @unique_pokemon.length %>/151 pokemon </p>
+  <% if  @one.nil? %>
+      <p>You do not own this Pokemon!</p>
+    <% elsif @unique_pokemon.nil?%>
+      <p class="first-row-text"> You have <%= @user_pokemons.length %> <%= @name.capitalize %></p>
+    <% else %>
+      <p class="first-row-text"> You have <%= @unique_pokemon.length %>/151 pokemon </p>
   <% end %>
    <%= image_tag "walking_ash_pikachu.gif", class: "walking_ash_pika" %>
   <p  class="first-row-text">Exp: <%= current_user.point %></p>
@@ -13,7 +15,6 @@
     <div class="col-12 col-md-7">
       <div class="big-card-left">
         <div class="search-bar mt-2">
-          <%# <h2 class="text-center">Pokédex</h2> %>
           <%= form_with url: dashboard_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev dashboard-search-bar" do %>
             <%= text_field_tag :query,
                 params[:query],
