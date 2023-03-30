@@ -12,14 +12,14 @@
       <div class="big-card-image <%=current_pokemon.types.first %>">
         <img src="<%= current_pokemon.image_url %>" alt="<%= current_pokemon.name %> image" id="pokemon-image">
       </div>
+      <div class="dex-card-types tags-big-card">
+        <% current_pokemon.types.each do |type| %>
+          <div class="tag <%=type %>">
+            <%= type.capitalize %>
+          </div>
+        <% end %>
+      </div>
       <div class="big-card-detail">
-        <div class="dex-card-types">
-          <% current_pokemon.types.each do |type| %>
-            <div class="tag <%=type %>">
-              <%= type.capitalize %>
-            </div>
-          <% end %>
-        </div>
         <div class="name-type text-center">
           <h1 class="pokemon-name" ><%= current_pokemon.name.capitalize %></h1>
           <p><%= description["flavor_text_entries"][0]["flavor_text"] %></p>

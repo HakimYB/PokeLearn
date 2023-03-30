@@ -168,10 +168,19 @@
   }
   }
 
-.big-card-screen-inner .dex-card-pokemon{
-  &.bug { background-color: #8CB230; }
-  &.grass { background-color: #77CC55; }
-  &.fire { background-color: #FF4422; }
+.big-card-screen-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 0 !important;
+  box-shadow: none;
+  position: relative;
+
+  .dex-card-pokemon{
+    &.bug { background-color: #8CB230; }
+    &.grass { background-color: #77CC55; }
+    &.fire { background-color: #FF4422; }
   &.water { background-color: #44AAFF; }
   &.normal { background-color: #AAAA99; }
   &.poison { background-color: #AA5599; }
@@ -187,6 +196,7 @@
   &.steel { background-color: #AAAABB; }
   &.fairy { background-color: #EE99EE; }
   &.flying { background-color: #A98FF3; }
+}
 }
 
 .dex-card-types {
@@ -222,14 +232,6 @@
   // background-color: white;
 }
 
-.big-card-screen-inner{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  border-radius: 0 !important;
-  box-shadow: none;
-}
 
 .big-card-screen{
   display: flex;
@@ -268,6 +270,7 @@
 .big-card-image {
   height: 250px;
   width: 100%;
+  position: relative;
   //  asset-url('2816.png'),
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
   background-size: cover;
@@ -366,8 +369,8 @@
   cursor: pointer;
   padding: 5px 16px;
   transition: 0.3s;
-  font-size: 14px;
-  height: 30px;
+  font-size: 0.7rem;
+  height: 1.5rem;
   color: $gray;
 }
 
@@ -409,7 +412,7 @@
   &.fairy { background-color: #EE99EE; }
   &.flying { background-color: #A98FF3; }
   p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
 }
@@ -421,23 +424,29 @@
 
 .big-card-detail {
   position: absolute;
-  top: 40%;
+  top: 50%;
   width: 100%;
   p {
     font-family: $nes-font;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 
 #pokemon-image {
   width: 230px;
   height: 230px;
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  // position: absolute;
+  // top: 20%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
   max-width: 100%;
   max-height: 100%;
+}
+
+.tags-big-card {
+  position: absolute;
+  top: 2%;
+  right: 2%;
 }
 
 .first-row {
@@ -463,7 +472,7 @@
 }
 
 .pokemon-name {
-  font-size: 1.7em;
+  font-size: 1.2em;
 }
 
 .empty-space {
