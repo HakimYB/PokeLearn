@@ -1,26 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snorlax 404 Error Page</title>
   <style>
-  img{
-    height: 30%;
-    width: 30%;
-    border-radius: 50%;
+      body {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Roboto', sans-serif;
+          background-color:#395ba8
+      }
+
+  .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0rem 2rem;
   }
-  h1{
-    font-size: 500px;
+
+  .pokemon-logo {
+      width: 200px;
+      height: auto;
+      margin-bottom: 1,5rem;
   }
-  .fail{
-   margin-left: 20%;
-   margin-top: -15%;
+
+  .error-title {
+      display: flex;
+      align-items: center;
+      font-size: 25vw;
+      color: #FDCB05;
+      margin-bottom: 1rem;
   }
-  </style>
+
+  .number {
+      font-weight: bold;
+  }
+
+  .back-button {
+      background-color: #FDCB05;
+      border: none;
+      border-radius: 2rem;
+      color: #333;
+      font-size: 2rem;
+      padding: 1rem 3rem;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 2rem;
+      width: 280px;
+  }
+
+  .back-button:hover {
+      background-color: #D6A604;
+  }
+
+  .snorlax-image {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .error-description {
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+  }
+
+  .oops {
+      color: #FDCB05;
+  }
+
+  .snorlax-container {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      width: 1em;
+      height: 1em;
+      vertical-align: middle;
+      border-radius: 50%;
+      background-color: #FDCB05;
+  }
+</style>
 </head>
-<body class="rails-default-error-page">
-  <div class ="fail">
-    <h1>4<img src="Poke_Ball_Icon.png" alt="My image">4</h1>
-  </div>
+<body>
+    <div class="container">
+        <img class="pokemon-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png" alt="Pokémon Logo">
+        <div class="error-title">
+            <span class="number">4</span>
+            <div class="snorlax-container">
+                <img class="snorlax-image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png" alt="Snorlax">
+            </div>
+            <span class="number">4</span>
+        </div>
+        <p class="error-description"><span class="oops">Oops!</span> A wild Snorlax had blocked your path!</p>
+        <button class="back-button" onclick="history.back()">Go Back</button>
+    </div>
 </body>
 </html>
