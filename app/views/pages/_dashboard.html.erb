@@ -6,7 +6,7 @@
       <% elsif @unique_pokemon.nil?%>
         <p class="first-row-text"> You have <%= @user_pokemons.length %> <%= @name.capitalize %></p>
       <% else %>
-        <p class="first-row-text"> You have <%= @unique_pokemon.length %>/151 pokemon </p>
+        <p class="first-row-text"> You have <%= @unique_pokemon.length %>/151 Pokemon </p>
     <% end %>
   </div>
   <div class="btn-center">
@@ -26,7 +26,7 @@
             <%= text_field_tag :query,
                 params[:query],
                 class: "nes-input search-bar-map",
-                placeholder: "Search pokedex"
+                placeholder: "Search Pokedex"
             %>
             <%= submit_tag "Search", class: "button btn-yellow nes-btn is-warning" %>
           <% end %>
