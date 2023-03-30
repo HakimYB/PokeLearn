@@ -3,8 +3,8 @@ class UserPokemonsController < ApplicationController
   def evolve
     @user = current_user
 
-    if @user.point >= 50
-      @user.point -= 50
+    if @user.point >= 100
+      @user.point -= 100
       @user.save
       @old_pokemon = UserPokemon.find(params[:id])
       @new_pokemon = Pokemon.find_by(name: @old_pokemon.pokemon.evolves_to)
