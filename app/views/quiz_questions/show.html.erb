@@ -12,13 +12,14 @@
       <div class="quiz-container">
         <p class="quiz-number">Question number <%= @number %>/5</p>
         <%= simple_form_for @quiz_question do |f| %>
+        <% letters = ["A", "B", "C", "D"] %>
           <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle %>
           <div class="quiz-question">
             <%= f.label raw(@problem), class: "col-form-label pt-0 question-text" %>
             <div class="answer-options">
               <% randomize.each_with_index do |answer, index| %>
-                <button class="answer-option nes-btn is-primary btn-blue answer-button" type="submit" name="quiz_question[user_answer]" value="<%= answer %>">
-                  <%= raw(answer)%>
+                <button class="answer-option nes-btn is-primary btn-blue answer-button" type="submit" name="quiz_question[user_answer]" value= "<%= answer %>">
+                  <%= letters[index] %>: <%= raw(answer)%>
                 </button>
               <% end %>
             </div>
