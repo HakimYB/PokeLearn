@@ -9,8 +9,8 @@
         <p class="first-row-text"> You have <%= @unique_pokemon.length %>/151 pokemon </p>
     <% end %>
   </div>
-  <div>
-    <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning moving-left" %>
+  <div class="btn-center">
+    <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning play-btn" %>
   </div>
   <div class="right d-flex">
     <%= image_tag "walking_ash_pikachu.gif", class: "walking-ash-pika" %>
