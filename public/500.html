@@ -1,27 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>500 Error - Internal Server Error</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  img{
-    height: 30%;
-    width: 30%;
-    border-radius: 50%;
-  }
-  h1{
-    font-size: 500px;
-  }
-  .fail{
-   margin-left: 20%;
-   margin-top: -15%;
-  }
-  </style>
-</head>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #FF1A1A;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        justify-content: space-between;
+      }
 
-<body class="rails-default-error-page">
-  <div class ="fail">
-    <h1>5<img src="Poke_Ball_Icon.png" alt="My image"><img src="Poke_Ball_Icon.png" alt="My image"></h1>
-  </div>
-</body>
-</html>
+      .pokemon-logo {
+        width: 200px;
+        margin-top: 2%;
+      }
+
+      .error-code {
+        font-size: 8rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+      }
+
+      .left-section,
+      .right-section {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .error-message {
+        font-size: 2rem;
+        color: #fff;
+        margin-top: 1rem;
+      }
+
+      .charizard-img {
+        width: 400px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="pokemon-logo" src="logo.png" alt="Pokemon Logo">
+    <div class="content">
+      <div class="left-section">
+        <img class="charizard-img" src="charizard.png" alt="Charizard">
+      </div>
+      <div class="right-section">
+        <h1 class="error-code">500</h1>
+        <h2 class="error-message">Fire Blast! Something went wrong.<br>Please try again later.</h2>
+      </div>
+    </div>
+  </body>
+  </html>
