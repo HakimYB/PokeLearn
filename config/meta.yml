@@ -1,5 +1,5 @@
 meta_name: "PokeLearn"
 meta_title: "PokeLearn - Get stronger and smarter with PokeLearn"
 meta_description: "PokeLearn is a trivia based card collection game. Answer trivia questions correcting to win first generation Pokemon. See if you have what it takes to collect them all!"
-meta_image: "Poke_Ball_Icon.png" # should exist in `app/assets/images/`
+meta_image: "fb-poke-ball.png" # should exist in `app/assets/images/`
 twitter_account: "@HakimYB"   # required for Twitter Cards
