@@ -65,7 +65,17 @@
   background-color: rgba(0, 0, 0, 0.504);
   padding: 10px;
   margin-right: 200px;
+  position: relative;
 }
+
+// .overlay {
+//   background-color: rgba(0,0,0,0.3);
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   left:0;
+//   top:0;
+// }
 // hide the scroll bar
 .scrolling-container::-webkit-scrollbar{
   display: none;
@@ -95,6 +105,9 @@
   color: white;
   right: 22px;
   top: 30px;
+}
+.filter-gray {
+  filter: grayscale(1);
 }
 
 .dex-map {

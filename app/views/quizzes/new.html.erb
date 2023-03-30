@@ -33,7 +33,7 @@
         <div class="dex-cards scrolling-container">
           <% @pokemons.each do |pokemon| %>
             <% unless @pokemon_ids.include?(pokemon.id) %>
-              <div class="dex-card <%=pokemon.types.first %>">
+              <div class="dex-card <%=pokemon.types.first %> filter-gray">
                 <div class="dex-card-img-container">
                   <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %> image">
                 </div>
