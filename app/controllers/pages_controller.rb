@@ -21,10 +21,7 @@ class PagesController < ApplicationController
         @current_pokemon = @user_pokemons.first.pokemon
         @current_user_pokemon = @user_pokemons.first
         name = @current_pokemon.name
-        url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
-        @pokemon = JSON.parse(URI.open(url).read)
-        species_url = "https://pokeapi.co/api/v2/pokemon-species/#{@current_pokemon.id}/"
-        @description = JSON.parse(URI.open(species_url).read)
+        parse
       end
     else
       @user_pokemons = UserPokemon.where(user: current_user)
@@ -37,11 +34,7 @@ class PagesController < ApplicationController
       unless @unique_pokemon.empty?
         @current_pokemon = @unique_pokemon.first.pokemon
         @current_user_pokemon = @unique_pokemon.first
-        name = @current_pokemon.name
-        url = "https://pokeapi.co/api/v2/pokemon/#{name}/"
-        @pokemon = JSON.parse(URI.open(url).read)
-        species_url = "https://pokeapi.co/api/v2/pokemon-species/#{@current_pokemon.id}/"
-        @description = JSON.parse(URI.open(species_url).read)
+        parse
       end
     end
 
@@ -67,18 +60,21 @@ class PagesController < ApplicationController
       @testing_pokemon = UserPokemon.where(user: current_user).select("distinct pokemon_id").order("pokemon_id DESC")
     end
     @current_pokemon = Pokemon.find(params[:id])
-    # raise
     @current_user_pokemon = @user_pokemons.find_by(pokemon: @current_pokemon)
-
-    url = "https://pokeapi.co/api/v2/pokemon/#{@current_pokemon.name}/"
-    @pokemon = JSON.parse(URI.open(url).read)
-
-    species_url = "https://pokeapi.co/api/v2/pokemon-species/#{@current_pokemon.name}/"
-    @description = JSON.parse(URI.open(species_url).read)
+    parse
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: "pages/big_card", locals: { current_pokemon:@current_pokemon, pokemon:@pokemon, description:@description }, formats: [:html] }
     end
+  end
+
+  private
+
+  def parse
+    url = "https://pokeapi.co/api/v2/pokemon/#{@current_pokemon.name}/"
+    @pokemon = JSON.parse(URI.open(url).read)
+    species_url = "https://pokeapi.co/api/v2/pokemon-species/#{@current_pokemon.name}/"
+    @description = JSON.parse(URI.open(species_url).read)
   end
 end
