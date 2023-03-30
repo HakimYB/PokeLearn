@@ -1,15 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <title>404 Error - Not Found</title>
   <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #ffcc00;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      justify-content: space-between;
+    }
 
+    .pokemon-logo {
+      width: 200px;
+      margin-top: 2%;
+    }
+
+    .error-code {
+      font-size: 8rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    .left-section,
+    .right-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .error-message {
+      font-size: 2rem;
+      color: #333;
+      margin-top: 1rem;
+    }
+
+    .electabuzz-img {
+      width: 400px;
+      height: auto;
+    }
   </style>
 </head>
-
-<body class="rails-default-error-page">
-  <div class ="fail">
-    <h1><img src="Poke_Ball_Icon.png" alt="My image"><img src="Poke_Ball_Icon.png" alt="My image"></h1>
+<body>
+  <img class="pokemon-logo" src="logo.png" alt="Pokemon Logo">
+  <div class="content">
+    <div class="left-section">
+      <img class="electabuzz-img" src="Electabuzz.png" alt="Electabuzz">
+    </div>
+    <div class="right-section">
+      <h1 class="error-code">422</h1>
+      <h2 class="error-message">Looks like your request hit a thunderstorm!</h2>
+    </div>
   </div>
+</body>
 </html>
