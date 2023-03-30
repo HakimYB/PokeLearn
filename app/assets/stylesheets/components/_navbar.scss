@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $yellow;
+  padding: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,4 +14,5 @@
 
 .map-text {
   font-size: 1.7rem;
+  margin: 0;
 }
