@@ -42,7 +42,7 @@
           </div>
           <div id="Ability" class="tabcontent <%=current_pokemon.types.first %>">
             <% pokemon["abilities"].each do |ability| %>
-              <p><%= ability["ability"]["name"] %></p>
+              <p><%= ability["ability"]["name"].capitalize %></p>
               <% end %>
           </div>
 
@@ -52,7 +52,7 @@
           </div>
 
           <div id="Species" class="tabcontent  <%=current_pokemon.types.first %>">
-            <p><%= pokemon["species"]["name"] %></p>
+            <p><%= pokemon["species"]["name"].capitalize %></p>
           </div>
         </div>
 
