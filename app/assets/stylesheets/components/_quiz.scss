@@ -210,10 +210,14 @@ body {
   // font-weight: bold;
   font-family: $nes-font;
   margin-bottom: 20px;
+  position: relative;
+  bottom: 20px;
 }
 
 .quiz-question {
   font-size: 25px;
+  position: relative;
+  bottom: 20px;
 }
 .question-text {
   font-family: $nes-font;
@@ -243,9 +247,11 @@ body {
   cursor: pointer;
 }
 .answer-options {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 55px;
+  top: 30px;
 }
 
 .answer-option {

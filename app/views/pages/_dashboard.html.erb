@@ -1,19 +1,25 @@
-<div class="first-row d-flex justify-content-between align-items-center">
- <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "button btn-green nes-btn is-error"  %>
-  <% if  @one.nil? %>
-      <p>You do not own this Pokemon!</p>
-    <% elsif @unique_pokemon.nil?%>
-      <p class="first-row-text"> You have <%= @user_pokemons.length %> <%= @name.capitalize %></p>
-    <% else %>
-      <p class="first-row-text"> You have <%= @unique_pokemon.length %>/151 pokemon </p>
-  <% end %>
-  <%= image_tag "walking_ash_pikachu.gif", class: "walking-ash-pika" %>
-  <p  class="first-row-text">Exp: <%= current_user.point %></p>
-  <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning moving-left" %>
+<div class="first-row d-flex justify-content-center align-items-center">
+  <div class="left d-flex flex-column">
+    <p  class="first-row-text exp">  Exp: <%= current_user.point %></p>
+    <% if  @one.nil? %>
+        <p>You do not own this Pokemon!</p>
+      <% elsif @unique_pokemon.nil?%>
+        <p class="first-row-text"> You have <%= @user_pokemons.length %> <%= @name.capitalize %></p>
+      <% else %>
+        <p class="first-row-text"> You have <%= @unique_pokemon.length %>/151 pokemon </p>
+    <% end %>
+  </div>
+  <div class="btn-center">
+    <%= link_to "PLAY", new_quiz_path, class: "button btn-yellow nes-btn is-warning play-btn" %>
+  </div>
+  <div class="right d-flex">
+    <%= image_tag "walking_ash_pikachu.gif", class: "walking-ash-pika" %>
+    <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "button btn-green nes-btn is-error"  %>
+  </div>
 </div>
 <div class="big-container dashboard-bkg">
   <div class="row w-100 middle-container"  data-controller="big-card">
-    <div class="col-12 col-lg-7 small-conatainer">
+    <div class="col-12 col-md-7 col-lg-8 small-conatainer">
       <div class="big-card-left">
         <div class="search-bar mt-2">
           <%= form_with url: pokedex_path, method: :get, class: "d-flex justify-content-center nes-field is-inlinev dashboard-search-bar" do %>
@@ -75,7 +81,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-5">
+    <div class="col-12 col-md-5 col-lg-4">
       <% if @user_pokemons.exists? %>
         <%= render "big_card", current_pokemon:@current_pokemon, pokemon:@pokemon, description:@description %>
       <% end %>
