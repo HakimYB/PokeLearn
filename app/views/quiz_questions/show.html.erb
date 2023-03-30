@@ -10,7 +10,7 @@
 
     <div class="background-container">
       <div class="quiz-container">
-        <p class="quiz-number">Question number <%= @number %>/5</p>
+        <p class="quiz-number">Question <%= @number %>/5</p>
         <%= simple_form_for @quiz_question do |f| %>
         <% letters = ["A", "B", "C", "D"] %>
           <% randomize = [@answer, @incorrect, @incorrect_two, @incorrect_three].shuffle %>
